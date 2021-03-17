@@ -1,0 +1,173 @@
+html,body{
+   margin:0;
+   padding:0;
+   height:100%;
+
+}
+
+body {
+  padding-bottom: 20px;
+
+}
+
+.h-80 {
+  height: 80% !important;
+}
+
+.h-85 {
+  height: 85% !important;
+}
+
+.h-90 {
+  height: 90% !important;
+}
+
+/* navbar*/
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: white;
+}
+
+.nav-link{
+	color: white;
+}
+
+/*footer*/
+
+
+
+
+
+/*·Î±×ÀÎ Æû*/
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+    
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/*È¸¿ø°¡ÀÔ Æû*/
+
+.form-regiter {
+  width: 60%;
+  margin: 60px auto;
+  background: #efefef;
+  padding: 60px 120px 80px 120px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
+.label-regiter {
+  display: block;
+  position: relative;
+  margin: 40px 0px;
+}
+.label-txt {
+  position: absolute;
+  top: -1.6em;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: .8em;
+  letter-spacing: 1px;
+  color: rgb(120,120,120);
+  transition: ease .3s;
+}
+.input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.line-box {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background: #BCBCBC;
+}
+
+.line {
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #8BC34A;
+  transition: ease .6s;
+}
+
+.input:focus + .line-box .line {
+  width: 100%;
+}
+
+.label-active {
+  top: -3em;
+}
+
+.btn-regiter {
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgb(220,220,220);
+  font-weight: bold;
+  color: rgb(120,120,120);
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: ease .3s;
+}
+
+.btn-regiter {
+  background: #8BC34A;
+  color: #ffffff;
+}
+
+
+/*ÅÇ*/
+
+.tab {overflow: hidden; border: 1px solid #ccc; 
+background-color: #f1f1f1;}
+
+.tab button {background-color: inherit; float: left; border: none;
+    outline: none; cursor: pointer; padding: 14px 16px; 
+    transition: 0.3s;}
+    
+.tab button:hover {background-color: #ddd;}
+
+/*·Î±×ÀÎ*/
+
+.login-link{
+	font-family: sans-serif;
+  font-size: .8em;
+	 color: rgb(120,120,120);
+}
