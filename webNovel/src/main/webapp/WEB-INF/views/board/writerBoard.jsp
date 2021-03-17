@@ -4,32 +4,32 @@
 <html>
 <%@include file="../include/header.jsp"%>
 <main>
-	<div class="container contents-wrap alert-secondary">
+	<div class="container p-3 border border-info mb-2">
 		<h4>작품 검색</h4>
 		<form action="/v" method="get" class="text-center">
 			<fieldset class="search">
-				<div class="tab"
-					style="width: 457px; text-align: center; margin-left: auto; margin-right: auto; text-align:center;">
-					<button class="tablinks btn-sm center">작품 검색</button>
-					<button class="tablink btn-sm center">작가</button>
-					<button class="tablinks btn-sm center">등장인물</button>
-					<button class="tablinks btn-sm center">작품 태그</button>
-					<button class="tablinks btn-sm center">등장인물 태그</button>
+				<div
+					style="width: 400px; text-align: center; margin-left: auto; margin-right: auto; text-align:center;">
+					<a class="btn btn-outline-info btn-sm center" href="novelBoard">작품 검색</a>
+					<a class="btn btn-outline-info btn-sm center active" href="writerBoard">작가</a>
+					<a class="btn btn-outline-info btn-sm center" href="charBoard">등장인물</a>
+					<a class="btn btn-outline-info btn-sm center" href="noveltagBoard">작품 태그</a>
+					<a class="btn btn-outline-info btn-sm center" href="chartagBoard">등장인물 태그</a>
 
 				</div>
-				<input type="text" name="q" id="q" class="text" value="" /><input
+				<input style="width: 410px;" type="text" name="q" id="q" class="text" value="" /><input
 					type="submit" class="submit" value="Search!" />
 			</fieldset>
 			<br>
 
-			<div class="container text-center">
+			<div class="container text-center ">
 				<input type="hidden">
 				<table style="margin-left: auto; margin-right: auto;">
 					<tr>
 						<td class="row">
-							<div class="col-2">
+							<div class="col-auto px-1">
 								<div class="dropdown">
-									<a class="btn btn-secondary dropdown-toggle" href="#"
+									<a class="btn btn-outline-info dropdown-toggle" style="font-size: small;" href="#"
 										role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
 										aria-expanded="false">And</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -41,10 +41,10 @@
 									</ul>
 								</div>
 
-							</div> <b class="col-1">→</b>
-							<div class="col-2">
+							</div> <b class="col-auto px-1">→</b>
+							<div class="col-auto px-1">
 								<div class="dropdown">
-									<a class="btn btn-secondary dropdown-toggle" href="#"
+									<a class="btn btn-outline-info dropdown-toggle" style="font-size: small;" href="#"
 										role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
 										aria-expanded="false">작가</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -56,9 +56,9 @@
 									</ul>
 								</div>
 							</div>
-							<div class="col-3">
+							<div class="col-auto  px-1">
 								<div class="dropdown">
-									<a class="btn btn-secondary dropdown-toggle" href="#"
+									<a class="btn btn-outline-info dropdown-toggle" style="font-size: small;" href="#"
 										role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
 										aria-expanded="false">태그</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -70,9 +70,9 @@
 									</ul>
 								</div>
 							</div>
-							<div class="col-2">
+							<div class="col-auto  px-1">
 								<div class="dropdown">
-									<a class="btn btn-secondary dropdown-toggle" href="#"
+									<a class="btn btn-outline-info dropdown-toggle" style="font-size: small;" href="#"
 										role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
 										aria-expanded="false">태그</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -82,6 +82,11 @@
 												충족되면 검색됩니다.</a></li>
 									</ul>
 								</div>
+							</div>
+							<div class="col-auto px-1">
+							<a class="btn btn-outline-info" style="font-size: small;" href="#"
+										role="button" id="dropdownMenuLink"  data-bs-toggle="dropdown"
+										aria-expanded="false">+</a>
 							</div>
 						</td>
 				</table>
