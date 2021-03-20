@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<%@include file="include/header.jsp"%>
+<%@include file="../include/header.jsp"%>
 <div class="container contents-wrap text-center h-80">
 <main class="form-regiter">
   <form>
@@ -22,7 +22,7 @@
 </main>
 </div>
 
-<%@include file="include/footer.jsp"%>
+<%@include file="../include/footer.jsp"%>
 
 
 

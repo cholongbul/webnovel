@@ -79,7 +79,7 @@
 							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 							role="button" aria-haspopup="true" aria-expanded="false">등록</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="addnovel_a">작품 등록</a> <a
+								<a class="dropdown-item" href="addnovel">작품 등록</a> <a
 									class="dropdown-item" href="addnoveltag">작품 태그 등록</a><a
 									class="dropdown-item" href="addwriter">작가 등록</a> <a
 									class="dropdown-item" href="addchar">등장인물 등록</a> <a
@@ -93,14 +93,15 @@
 						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 					</form>
 				</div>
-				<div class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown07"
-						data-bs-toggle="dropdown" aria-expanded="false">유저정보</a>
-					<ul class="dropdown-menu" aria-labelledby="dropdown07">
-						<li><a class="dropdown-item" href="login">로그인</a></li>
-						<li><a class="dropdown-item" href="register">회원가입</a></li>
-					</ul>
-				</div>
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+						role="button" aria-haspopup="true" aria-expanded="false">유저정보</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="login">로그인</a> <a
+								class="dropdown-item" href="register">회원가입</a>
+						</div></li>
+				</ul>
 			</div>
 		</nav>
 

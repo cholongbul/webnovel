@@ -22,21 +22,8 @@ public class AddnovelController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/addnovel_a", method = RequestMethod.GET)
-	public String home1(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "add/addnovel_a";
-	}
-	
-	@RequestMapping(value = "/addnovel_b", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/addnovel", method = RequestMethod.GET)
 	public String home2(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -47,7 +34,7 @@ public class AddnovelController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "add/addnovel_b";
+		return "add/addnovel";
 	}
 	
 	@RequestMapping(value = "/addwriter", method = RequestMethod.GET)
@@ -104,6 +91,34 @@ public class AddnovelController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "add/addchartag";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "userinfo/login";
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "userinfo/register";
 	}
 	
 }
