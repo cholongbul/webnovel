@@ -22,6 +22,10 @@ body {
   height: 90% !important;
 }
 
+.hidden{
+	display: none;
+}
+
 /* navbar*/
 .navbar {
   margin-bottom: 20px;

@@ -48,66 +48,61 @@
 <body>
 
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark"
-			aria-label="Eighth navbar example">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container">
-				<a class="navbar-brand" href="index">WebNovelDB</a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
-					aria-controls="navbarsExample07" aria-expanded="false"
-					aria-label="Toggle navigation">
+				<a class="navbar-brand" href="index">WebNovel</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarColor02" aria-controls="navbarColor02"
+					aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<div class="collapse navbar-collapse" id="navbarsExample07">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<div class="collapse navbar-collapse" id="navbarColor02">
+					<ul class="navbar-nav mr-auto">
 						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="dropdown07"
-							data-bs-toggle="dropdown" aria-expanded="false">작품</a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown07">
-								<li><a class="dropdown-item" href="novelBoard">작품 검색</a></li>
-								<li><a class="dropdown-item" href="noveltagBoard">작품 태그
-										검색</a></li>
-							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="writerBoard"
-							aria-disabled="true">작가</a></li>
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false">작품</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="novelBoard">작품 검색</a> <a
+									class="dropdown-item" href="noveltagBoard">작품 태그 검색</a>
+							</div></li>
+						<li class="nav-item"><a class="nav-link" href="writerBoard">작가</a>
+						</li>
 						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="dropdown07"
-							data-bs-toggle="dropdown" aria-expanded="false">등장인물</a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown07">
-								<li><a class="dropdown-item" href="charBoard">등장인물 검색</a></li>
-								<li><a class="dropdown-item" href="chartagBoard">등장인물
-										태그 검색</a></li>
-							</ul></li>
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false">등장인물</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="charBoard">등장인물 검색</a> <a
+									class="dropdown-item" href="chartagBoard">등장인물 태그 검색</a>
+							</div></li>
 						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#" id="dropdown07"
-							data-bs-toggle="dropdown" aria-expanded="false">등록</a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown07">
-								<li><a class="dropdown-item" href="#">작품 등록</a></li>
-								<li><a class="dropdown-item" href="#">작가 등록</a></li>
-								<li><a class="dropdown-item" href="#">등장인물 등록</a></li>
-								<li><a class="dropdown-item" href="#">작품 태그 등록</a></li>
-								<li><a class="dropdown-item" href="#">등장인물 태그 등록</a></li>
-							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="#"
-							aria-disabled="true">최근 변경</a></li>
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false">등록</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="addnovel_a">작품 등록</a> <a
+									class="dropdown-item" href="addnoveltag">작품 태그 등록</a><a
+									class="dropdown-item" href="addwriter">작가 등록</a> <a
+									class="dropdown-item" href="addchar">등장인물 등록</a> <a
+									class="dropdown-item" href="addchartag">등장인물 태그 등록</a>
+							</div></li>
+
 					</ul>
-					<form>
-						<div class="input-group row">
-							<input class="form-control col-sm-8" type="text"
-								placeholder="Search" aria-label="Search">
-							<button class="btn btn-secondary col-sm-4">검색</button>
-						</div>
+					<form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="text"
+							placeholder="Search">
+						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 					</form>
-					<div class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="dropdown07"
-							data-bs-toggle="dropdown" aria-expanded="false">유저정보</a>
-						<ul class="dropdown-menu" aria-labelledby="dropdown07">
-							<li><a class="dropdown-item" href="login">로그인</a></li>
-							<li><a class="dropdown-item" href="register">회원가입</a></li>
-						</ul>
-					</div>
+				</div>
+				<div class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown07"
+						data-bs-toggle="dropdown" aria-expanded="false">유저정보</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown07">
+						<li><a class="dropdown-item" href="login">로그인</a></li>
+						<li><a class="dropdown-item" href="register">회원가입</a></li>
+					</ul>
 				</div>
 			</div>
 		</nav>
+
+
 	</header>
