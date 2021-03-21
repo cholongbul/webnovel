@@ -1,4 +1,4 @@
-package com.bit.webnovel;
+package com.bit.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

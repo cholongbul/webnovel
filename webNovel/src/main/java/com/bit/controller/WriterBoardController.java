@@ -1,4 +1,4 @@
-package com.bit.webnovel;
+package com.bit.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-public class ChartagBoardController {
+public class WriterBoardController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(ChartagBoardController.class);
+	private static final Logger logger = LoggerFactory.getLogger(WriterBoardController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/chartagBoard", method = RequestMethod.GET)
+	@RequestMapping(value = "/writerBoard", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -33,7 +33,7 @@ public class ChartagBoardController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "board/chartagBoard";
+		return "board/writerBoard";
 	}
 	
 }
