@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <%@include file="../include/header.jsp"%>
+
 <main>
 
 	<div class="container p-3 border border-info mb-2">

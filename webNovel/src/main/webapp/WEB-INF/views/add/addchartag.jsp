@@ -4,7 +4,6 @@
 <html>
 <%@include file="../include/header.jsp"%>
 
-
 <main>
 
 	<div class="container p-3 border border-info mb-2">
@@ -59,6 +58,5 @@
 		<a class="btn btn-outline-info center" href="#">등록하기</a>
 	</div>
 </main>
-
 
 <%@include file="../include/footer.jsp"%>

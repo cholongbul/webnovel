@@ -94,13 +94,26 @@
 					</form>
 				</div>
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-						role="button" aria-haspopup="true" aria-expanded="false">유저정보</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="login">로그인</a> <a
-								class="dropdown-item" href="register">회원가입</a>
-						</div></li>
+					<c:if test="${not empty login}">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false">${login.u_id}</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="profile">프로필</a> <a
+									class="dropdown-item" href="uservote">유저투표</a>
+
+							</div></li>
+					</c:if>
+					<c:if test="${empty login}">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false">로그인</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="login">로그인</a> <a
+									class="dropdown-item" href="register">회원가입</a>
+							</div></li>
+					</c:if>
+
 				</ul>
 			</div>
 		</nav>
