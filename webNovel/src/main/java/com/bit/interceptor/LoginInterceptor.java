@@ -1,5 +1,6 @@
 package com.bit.interceptor;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,6 +26,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		if (userVO != null) {
 			logger.info("new login success");
 			httpSession.setAttribute(LOGIN, userVO);
+			
+			if (request.getParameter("useCookie") != null) {
+			logger.info("remember login");
+			//쿠키 생성
+			Cookie loginCookie = new Cookie("loginCookie", httpSession.getId());
+			loginCookie.setPath("../index");
+			loginCookie.setMaxAge(60*60*24*7);//60초(1분)*60(1시간)*24(하루)*7(일주일)
+			//전송
+			response.addCookie(loginCookie);	
+						
+			}
+			
 			Object destination = httpSession.getAttribute("destination");
 			response.sendRedirect(destination != null ? (String) destination : "../index");
 		}

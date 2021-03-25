@@ -4,14 +4,14 @@
 <html>
 <%@include file="../include/header.jsp"%>
 <main>
-		<div class="container p-3 border border-info mb-2">
+	<div class="container p-3 border border-info mb-2">
 		<h4>작품 검색</h4>
 		<form action="/v" method="get" class="text-center">
 			<fieldset class="search">
 				<div
 					style="width: 400px; text-align: center; margin-left: auto; margin-right: auto; text-align:center;">
 					<a class="btn btn-outline-info btn-sm center" href="novelBoard">작품 검색</a>
-					<a class="btn btn-outline-info btn-sm center" href="writerBoard">작가</a>
+					<a class="btn btn-outline-info btn-sm center" href="authorBoard">작가</a>
 					<a class="btn btn-outline-info btn-sm center active" href="charBoard">등장인물</a>
 					<a class="btn btn-outline-info btn-sm center" href="noveltagBoard">작품 태그</a>
 					<a class="btn btn-outline-info btn-sm center" href="chartagBoard">등장인물 태그</a>
@@ -94,6 +94,7 @@
 			<br>
 			<p class="center">10 results in 0.059s</p>
 		</form>
+
 
 	</div>
 	<div class="container contents-wrap text-center h-80">

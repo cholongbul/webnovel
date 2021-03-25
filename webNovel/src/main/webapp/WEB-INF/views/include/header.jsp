@@ -66,7 +66,7 @@
 								<a class="dropdown-item" href="novelBoard">작품 검색</a> <a
 									class="dropdown-item" href="noveltagBoard">작품 태그 검색</a>
 							</div></li>
-						<li class="nav-item"><a class="nav-link" href="writerBoard">작가</a>
+						<li class="nav-item"><a class="nav-link" href="authorBoard">작가</a>
 						</li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
@@ -81,7 +81,7 @@
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="addnovel">작품 등록</a> <a
 									class="dropdown-item" href="addnoveltag">작품 태그 등록</a><a
-									class="dropdown-item" href="addwriter">작가 등록</a> <a
+									class="dropdown-item" href="addauthor">작가 등록</a> <a
 									class="dropdown-item" href="addchar">등장인물 등록</a> <a
 									class="dropdown-item" href="addchartag">등장인물 태그 등록</a>
 							</div></li>

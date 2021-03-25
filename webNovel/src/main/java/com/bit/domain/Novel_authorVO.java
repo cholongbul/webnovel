@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Novel_authorVO {
-	private int a_id;
-	private int n_id;
+	private Integer a_id;
+	private Integer n_id;
 
 }

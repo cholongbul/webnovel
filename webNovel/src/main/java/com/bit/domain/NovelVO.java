@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class NovelVO {
-	private int n_id;
+	private Integer n_id;
 	private String title;
 	private String n_description;
 	private String ending;

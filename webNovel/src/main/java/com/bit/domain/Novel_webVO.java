@@ -4,9 +4,8 @@ import lombok.Data;
 
 @Data
 public class Novel_webVO {
-	private int w_id;
-	private int n_id;
-	private int completeNum;
+	private Integer w_id;
+	private Integer n_id;
 	private String started;
 	private String ended;
 }

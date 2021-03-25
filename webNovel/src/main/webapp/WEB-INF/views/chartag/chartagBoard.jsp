@@ -10,11 +10,11 @@
 			<fieldset class="search">
 				<div
 					style="width: 400px; text-align: center; margin-left: auto; margin-right: auto; text-align:center;">
-					<a class="btn btn-outline-info btn-sm center active" href="novelBoard">작품 검색</a>
-					<a class="btn btn-outline-info btn-sm center" href="writerBoard">작가</a>
+					<a class="btn btn-outline-info btn-sm center" href="novelBoard">작품 검색</a>
+					<a class="btn btn-outline-info btn-sm center" href="authorBoard">작가</a>
 					<a class="btn btn-outline-info btn-sm center" href="charBoard">등장인물</a>
 					<a class="btn btn-outline-info btn-sm center" href="noveltagBoard">작품 태그</a>
-					<a class="btn btn-outline-info btn-sm center" href="chartagBoard">등장인물 태그</a>
+					<a class="btn btn-outline-info btn-sm center active" href="chartagBoard">등장인물 태그</a>
 
 				</div>
 				<input style="width: 410px;" type="text" name="q" id="q" class="text" value="" /><input
@@ -95,8 +95,8 @@
 			<p class="center">10 results in 0.059s</p>
 		</form>
 
-	</div>
 
+	</div>
 	<div class="container contents-wrap text-center h-80">
 		<div class="table-responsive">
 			<table class="table table-striped table-sm">
@@ -225,15 +225,15 @@
 				</tbody>
 			</table>
 		</div>
-			<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#">Next</a></li>
+			</ul>
+		</nav>
 	</div>
 
 </main>

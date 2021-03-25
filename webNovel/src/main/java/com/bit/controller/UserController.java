@@ -71,25 +71,5 @@ public class UserController {
 
 	}
 
-	// 로그아웃 처리
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession)
-			throws Exception {
 
-		Object object = httpSession.getAttribute("login");
-		if (object != null) {
-			UserVO userVO = (UserVO) object;
-			httpSession.removeAttribute("login");
-			httpSession.invalidate();
-			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
-			if (loginCookie != null) {
-				loginCookie.setPath("/");
-				loginCookie.setMaxAge(0);
-				response.addCookie(loginCookie);
-				userService.keepLogin(userVO.getU_id(), "none", new Date());
-			}
-		}
-
-		return "/user/logout";
-	}
 }

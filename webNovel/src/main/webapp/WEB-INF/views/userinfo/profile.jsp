@@ -16,7 +16,7 @@
 		<div class="mb-3 col-12 row">
 			<label for="inputAlias" class="col-1 col-form-label pt-0 pl-0">이메일</label>
 			<div class="col-3">
-				<p>value="${login.email}"</p>
+				<p>${login.email}</p>
 			</div>
 		</div>
 
