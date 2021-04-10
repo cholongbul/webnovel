@@ -19,21 +19,29 @@ public class CharController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CharController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	//등장인물 게시판
 	@RequestMapping(value = "/charBoard", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
+	public String charBoard() {
+
 		
 		return "char/charBoard";
+	}
+	
+	
+	//등장인물 등록
+	@RequestMapping(value = "/addchar", method = RequestMethod.GET)
+	public String addchar() {
+
+		
+		return "char/addchar";
+	}
+	
+	//등장인물 조회
+	@RequestMapping(value = "/charview", method = RequestMethod.GET)
+	public String charview() {
+
+		
+		return "char/charview";
 	}
 	
 }

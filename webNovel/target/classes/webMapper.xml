@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bit.domain.web">
+	<!-- 등록 -->
+	<insert id="create">
+		insert into webplatform(w_name,url)
+		values(#{w_name},#{url});
+	</insert>
+
+	<!-- 열람 -->
+	<select id="read" resultMap="WebResultMap">
+		SELECT * FROM webplatform WHERE w_id
+		=
+		#{w_id}
+	</select>
+
+	<!-- 수정 -->
+	<update id="update">
+		UPDATE webplatform SET a_name = #{w_name}, url =
+		#{url}
+		where w_id = #{w_id}
+	</update>
+
+	<!-- 삭제 -->
+	<delete id="delete">
+		DELETE FROM webplatform WHERE w_id = #{w_id}
+	</delete>
+	<!-- 목록 -->
+	<select id="listAll" resultMap="WebResultMap">
+		<![CDATA[
+		SELECT w_id, w_name, url FROM webplatform where w_id > 0
+		ORDER BY w_id DESC
+		]]>
+	</select>
+
+	<resultMap id="WebResultMap"
+		type="com.bit.domain.WebplatformVO">
+		<id property="w_id" column="w_id" />
+		<result property="w_name" column="w_name" />
+		<result property="url" column="url" />
+	</resultMap>
+</mapper>
+

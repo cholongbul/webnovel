@@ -23,17 +23,17 @@ public class ChartagController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/chartagBoard", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	public String chartagBoard() {
+
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		return "chartag/chartagBoard";
+	}
+	
+	@RequestMapping(value = "/addchartag", method = RequestMethod.GET)
+	public String addchartag() {
+
 		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "char/chartagBoard";
+		return "chartag/addchartag";
 	}
 	
 }

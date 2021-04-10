@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -64,7 +67,7 @@
 							role="button" aria-haspopup="true" aria-expanded="false">작품</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="novelBoard">작품 검색</a> <a
-									class="dropdown-item" href="noveltagBoard">작품 태그 검색</a>
+									class="dropdown-item" href="novelTagBoard">작품 태그 검색</a>
 							</div></li>
 						<li class="nav-item"><a class="nav-link" href="authorBoard">작가</a>
 						</li>
@@ -73,17 +76,23 @@
 							role="button" aria-haspopup="true" aria-expanded="false">등장인물</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="charBoard">등장인물 검색</a> <a
-									class="dropdown-item" href="chartagBoard">등장인물 태그 검색</a>
+									class="dropdown-item" href="charTagBoard">등장인물 태그 검색</a>
 							</div></li>
+							<li class="nav-item"><a class="nav-link" href="webBoard">연재처</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="pubBoard">출판사</a>
+						</li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 							role="button" aria-haspopup="true" aria-expanded="false">등록</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="addnovel">작품 등록</a> <a
-									class="dropdown-item" href="addnoveltag">작품 태그 등록</a><a
-									class="dropdown-item" href="addauthor">작가 등록</a> <a
-									class="dropdown-item" href="addchar">등장인물 등록</a> <a
-									class="dropdown-item" href="addchartag">등장인물 태그 등록</a>
+								<a class="dropdown-item" href="addNovel">작품 등록</a> <a
+									class="dropdown-item" href="addNoveltag">작품 태그 등록</a><a
+									class="dropdown-item" href="addAuthor">작가 등록</a> <a
+									class="dropdown-item" href="addChar">등장인물 등록</a> <a
+									class="dropdown-item" href="addChartag">등장인물 태그 등록</a> <a
+									class="dropdown-item" href="addWeb">연재처 등록</a> <a
+									class="dropdown-item" href="addPub">출판사 등록</a>
 							</div></li>
 
 					</ul>

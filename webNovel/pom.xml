@@ -96,10 +96,11 @@
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -113,12 +114,17 @@
 		</dependency>
 
 		<!-- Test -->
+
+
+		<!-- spring-test 의존성 주입 -->
+
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>5.0.7.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
+
 		<!-- MyLib -->
 		<!-- spring-jdbc -->
 		<dependency>
@@ -147,7 +153,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.11</version>
 		</dependency>
-		
+
 		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -155,14 +161,14 @@
 			<version>1.18.8</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- 비밀번호 암호화 -->
 		<dependency>
 			<groupId>org.mindrot</groupId>
 			<artifactId>jbcrypt</artifactId>
 			<version>0.4</version>
 		</dependency>
-		
+
 
 		<!-- spring-tx -->
 		<dependency>

@@ -113,7 +113,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>전지적 독자 시점</td>
+						<td><a href="novelview">전지적 독자 시점</a></td>
 						<td>2016/01/05</td>
 						<td>완결</td>
 						<td>100.0</td>
@@ -188,7 +188,7 @@
 		<nav aria-label="Page navigation example">
 			<ul class="pagination">
 				<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item active"><a class="page-link" href="#">1</a></li>
 				<li class="page-item"><a class="page-link" href="#">2</a></li>
 				<li class="page-item"><a class="page-link" href="#">3</a></li>
 				<li class="page-item"><a class="page-link" href="#">Next</a></li>

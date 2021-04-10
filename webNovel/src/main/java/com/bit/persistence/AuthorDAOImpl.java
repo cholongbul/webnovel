@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.bit.commons.paging.Criteria;
 import com.bit.domain.AuthorVO;
 
 @Repository
@@ -45,6 +46,18 @@ public class AuthorDAOImpl implements AuthorDAO {
 	public List<AuthorVO> listAll() throws Exception {
 		return session.selectList(namespace + ".listAll");
 
+	}
+
+
+
+	@Override
+	public List<AuthorVO> listCriteria(Criteria criteria) throws Exception {
+		return session.selectList(namespace + ".listCriteria", criteria);
+	}
+
+	@Override
+	public int countAuthors(Criteria criteria) throws Exception {
+		return session.selectOne(namespace + ".countAuthors");
 	}
 
 }

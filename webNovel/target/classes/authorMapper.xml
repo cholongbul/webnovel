@@ -28,10 +28,33 @@
 		DELETE FROM author WHERE a_id = #{a_id}
 	</delete>
 	<!-- 목록 -->
-	<select id="listAll" resultType="com.bit.domain.AuthorVO">
+	<select id="listAll" resultMap="AuthorResultMap">
 		<![CDATA[
 		SELECT a_id, a_name, gender, a_history FROM author where a_id > 0
 		ORDER BY a_id DESC
+		]]>
+	</select>
+	<!-- 페이징 -->
+	<select id="listPaging" resultMap="AuthorResultMap">
+		<![CDATA[
+		SELECT a_id, a_name, gender, a_history FROM author where a_id > 0
+		ORDER BY a_id DESC
+		LIMIT #{page}, 10
+		]]>
+	</select>
+	<select id="listCriteria" resultMap="AuthorResultMap">
+			<![CDATA[
+		SELECT a_id, a_name, gender, a_history FROM author where a_id > 0
+		ORDER BY a_id DESC
+		LIMIT #{pageStart}, #{perPageNum}
+		]]>
+	</select>
+	<!--  전체 작가 수 -->
+	<select id="countAuthors" resultType="int">
+			<![CDATA[
+		SELECT COUNT(a_id)
+		FROM author
+		where a_id > 0
 		]]>
 	</select>
 

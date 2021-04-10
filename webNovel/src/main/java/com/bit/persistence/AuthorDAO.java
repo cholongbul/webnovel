@@ -2,10 +2,12 @@ package com.bit.persistence;
 
 import java.util.List;
 
+import com.bit.commons.paging.Criteria;
 import com.bit.domain.AuthorVO;
 
 
 public interface AuthorDAO {
+	
 	// 등록
 	public void create(AuthorVO author) throws Exception;
 	
@@ -21,4 +23,11 @@ public interface AuthorDAO {
 
 	// 목록
 	public List<AuthorVO> listAll() throws Exception;
+	
+	// 페이징
+	public List<AuthorVO> listCriteria(Criteria criteria) throws Exception;
+	
+	//전체 데이터 갯수
+	int countAuthors(Criteria criteria) throws Exception; 
+
 }

@@ -23,17 +23,15 @@ public class NoveltagController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/noveltagBoard", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "novel/noveltagBoard";
+	public String noveltagBoard() {
+
+		return "noveltag/noveltagBoard";
+	}
+	
+	@RequestMapping(value = "/addnoveltag", method = RequestMethod.GET)
+	public String addnoveltag() {
+
+		return "noveltag/addnoveltag";
 	}
 	
 }

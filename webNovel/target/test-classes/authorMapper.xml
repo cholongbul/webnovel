@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bit.domain.author">
+	<!-- 등록 -->
+	<insert id="create">
+		insert into author(gender,a_name,a_history)
+		values(#{gender},#{a_name},#{a_history});
+	</insert>
+
+	<!-- 열람 -->
+	<select id="read" resultMap="AuthorResultMap">
+		SELECT * FROM author WHERE a_id =
+		#{a_id}
+	</select>
+
+	<!-- 수정 -->
+	<update id="update">
+		UPDATE author SET a_name = #{a_name}, gender =
+		#{gender}, a_history = #{a_history}
+		where a_id = #{a_id}
+	</update>
+
+	<!-- 삭제 -->
+	<delete id="delete">
+		DELETE FROM author WHERE a_id = #{a_id}
+	</delete>
+	<!-- 목록 -->
+	<select id="listAll" resultMap="AuthorResultMap">
+		<![CDATA[
+		SELECT a_id, a_name, gender, a_history FROM author where a_id > 0
+		ORDER BY a_id DESC
+		]]>
+	</select>
+	<!-- 페이징 -->
+	<select id="listPaging" resultMap="AuthorResultMap">
+		<![CDATA[
+		SELECT a_id, a_name, gender, a_history FROM author where a_id > 0
+		ORDER BY a_id DESC
+		LIMIT #{page}, 10
+		]]>
+	</select>
+	<select id="listCriteria" resultMap="AuthorResultMap">
+			<![CDATA[
+		SELECT a_id, a_name, gender, a_history FROM author where a_id > 0
+		ORDER BY a_id DESC
+		LIMIT #{pageStart}, #{perPageNum}
+		]]>
+	</select>
+
+
+	<resultMap id="AuthorResultMap"
+		type="com.bit.domain.AuthorVO">
+		<id property="a_id" column="a_id" />
+		<result property="a_name" column="a_name" />
+		<result property="gender" column="gender" />
+		<result property="a_history" column="a_history" />
+	</resultMap>
+</mapper>
+
