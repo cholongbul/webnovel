@@ -21,7 +21,7 @@
 			<ul class="pagination">
 				<c:if test="${pageCounter.prev}">
 					<li class="page-item"><a class="page-link"
-						href="authorBoard${pageCounter.makeQuery(pageCounter.startpage-1)}">Previous</a></li>
+						href="authorBoard${pageCounter.makeQuery(pageCounter.startPage-1)}">Previous</a></li>
 				</c:if>
 				<c:forEach begin="${pageCounter.startPage}"
 					end="${pageCounter.endPage}" var="idx">

@@ -55,17 +55,20 @@
 					<td>100.0</td>
 					<td>8.25</td>
 				</tr>
-			
+
 			</tbody>
 		</table>
 	</div>
 	<div class="container p-3 border border-info mb-2 text-center">
-	<a class="btn btn-outline-info center" href="authorBoard">목록으로</a>
-	<form role="form" action="modifyAuthor">
-	<input type="hidden" name="a_id" value="${author.a_id}">
-		<button type="submit" class="btn btn-outline-info center">수정하기</button>
+		<form role="form" method="post">
+			<input type="hidden" name="a_id" value="${author.a_id}"> <input
+				type="hidden" name="page" value="${criteria.page}"> <input
+				type="hidden" name="perPageNum" value="${criteria.perPageNum}">
+
 		</form>
-		<a class="btn btn-outline-info center" href="authorRemove">삭제하기</a>
+		<button type="submit" class="btn btn-outline-info center a_listBtn">목록으로</button>
+		<button type="submit" class="btn btn-outline-info center a_modBtn">수정하기</button>
+		<button type="submit" class="btn btn-outline-info center a_delBtn">삭제하기</button>
 	</div>
 </main>
 

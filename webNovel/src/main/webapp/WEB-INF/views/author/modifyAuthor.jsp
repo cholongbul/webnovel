@@ -49,9 +49,11 @@
 		<div class="container p-3 border border-info mb-2 text-center">
 			<button type="submit" class="btn btn-outline-info center">
 				수정하기</button>
-			<button type="button" class="btn btn-outline-info center">취소하기</button>
+			<button type="button" class="btn btn-outline-info center cancelBtn">취소하기</button>
 		</div>
-		<input type="hidden" name="a_id" value="${author.a_id}">
+		<input type="hidden" name="a_id" value="${author.a_id}"> <input
+			type="hidden" name="page" value="${criteria.page}"> <input
+			type="hidden" name="perPageNum" value="${criteria.perPageNum}">
 	</form>
 </main>
 
