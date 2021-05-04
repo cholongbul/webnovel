@@ -95,9 +95,22 @@ $(document).ready(function() {
 		formObj.submit();
 	});
 	
+	
+
 	//공용 버튼
 	
 	$(".cancelBtn").on("click", function() {
 		history.go(-1);
 	});
+});
+
+$(document).ready(function(){
+	
+	$("#a_searchBtn").on("click", function (event) {
+		self.location = 
+			"authorBoard?page=1&perPageNum=80"
+			+ "&gender=" + $("select option:selected").val()
+			+ "&keyword=" + encodeURIComponent($("#keywordInput").val());
+	});
+	
 });

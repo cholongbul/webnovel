@@ -5,7 +5,7 @@
 <%@include file="../include/header.jsp"%>
 <main>
 		<form action="/v" method="get" class="text-center">
-<%@include file="../include/boardHead.jsp"%>
+<%@include file="../include/searchBoard.jsp"%>
 
 	
 		</form>

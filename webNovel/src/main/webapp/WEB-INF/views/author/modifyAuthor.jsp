@@ -52,8 +52,10 @@
 			<button type="button" class="btn btn-outline-info center cancelBtn">취소하기</button>
 		</div>
 		<input type="hidden" name="a_id" value="${author.a_id}"> <input
-			type="hidden" name="page" value="${criteria.page}"> <input
-			type="hidden" name="perPageNum" value="${criteria.perPageNum}">
+			type="hidden" name="page" value="${searchCriteria.page}"> <input
+			type="hidden" name="perPageNum" value="${searchCriteria.perPageNum}"><input
+				type="hidden" name="keyword" value="${searchCriteria.keyword}"><input
+				type="hidden" name="gender" value="${searchCriteria.gender}">
 	</form>
 </main>
 

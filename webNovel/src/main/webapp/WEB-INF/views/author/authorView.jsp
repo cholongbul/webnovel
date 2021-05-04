@@ -62,8 +62,10 @@
 	<div class="container p-3 border border-info mb-2 text-center">
 		<form role="form" method="post">
 			<input type="hidden" name="a_id" value="${author.a_id}"> <input
-				type="hidden" name="page" value="${criteria.page}"> <input
-				type="hidden" name="perPageNum" value="${criteria.perPageNum}">
+				type="hidden" name="page" value="${searchCriteria.page}"> <input
+				type="hidden" name="perPageNum" value="${searchCriteria.perPageNum}">
+			<input type="hidden" name="keyword" value="${searchCriteria.keyword}"><input
+				type="hidden" name="gender" value="${searchCriteria.gender}">
 
 		</form>
 		<button type="submit" class="btn btn-outline-info center a_listBtn">목록으로</button>

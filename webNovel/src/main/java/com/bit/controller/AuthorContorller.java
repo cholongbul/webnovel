@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bit.commons.paging.Criteria;
 import com.bit.commons.paging.PageCounter;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.AuthorVO;
 import com.bit.service.AuthorService;
 
@@ -50,15 +50,17 @@ public class AuthorContorller {
 	
 	//작가 리스트
 	@RequestMapping(value="/authorBoard", method = RequestMethod.GET)
-	public String authorBoard(Model model, Criteria criteria) throws Exception {
+	public String authorBoard(Model model, 
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria
+			)throws Exception {
 		
 		logger.info("Board");
 		
 		PageCounter pageCounter = new PageCounter();
-		pageCounter.setCriteria(criteria);
-		pageCounter.setTotalCount(authorservice.countAuthors(criteria));
+		pageCounter.setCriteria(searchCriteria);
+		pageCounter.setTotalCount(authorservice.countAuthors(searchCriteria));
 		
-		model.addAttribute("authors", authorservice.listCriteria(criteria));
+		model.addAttribute("authors", authorservice.listCriteria(searchCriteria));
 		model.addAttribute("pageCounter", pageCounter);
 
 		return "author/authorBoard";
@@ -68,7 +70,7 @@ public class AuthorContorller {
 	//작가 조회
 	@RequestMapping(value="/authorView", method = RequestMethod.GET)
 	public String authorview( @RequestParam("a_id") int a_id, 
-			@ModelAttribute("criteria") Criteria criteria,
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria,
 			Model model) throws Exception {
 		
 		logger.info("Board");
@@ -82,7 +84,7 @@ public class AuthorContorller {
 	//수정 페이지 이동
 	@RequestMapping(value="/modifyAuthor", method = RequestMethod.GET)
 	public String modifyAuthor(@RequestParam("a_id") int a_id, 
-			@ModelAttribute("criteria") Criteria criteria,
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria,
 			Model model) throws Exception {
 		
 		logger.info("Modify get");
@@ -94,13 +96,15 @@ public class AuthorContorller {
 	//수정
 	@RequestMapping(value = "/modifyAuthorPOST", method = RequestMethod.POST)
 	public String authormodifyPOST(AuthorVO author, 
-			Criteria criteria,
+			SearchCriteria searchCriteria,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");
 		authorservice.update(author);
-		redirectAttributes.addAttribute("page", criteria.getPage());
-		redirectAttributes.addAttribute("perPageNum", criteria.getPerPageNum());
+		redirectAttributes.addAttribute("page", searchCriteria.getPage());
+		redirectAttributes.addAttribute("perPageNum", searchCriteria.getPerPageNum());
+		redirectAttributes.addAttribute("keyword", searchCriteria.getPage());
+		redirectAttributes.addAttribute("gender", searchCriteria.getPerPageNum());
 		redirectAttributes.addFlashAttribute("msg", "modSuccess");
 		
 		return "redirect:/authorBoard";
@@ -109,13 +113,15 @@ public class AuthorContorller {
 	//삭제
 	@RequestMapping(value = "/authorRemove", method = RequestMethod.POST)
 	public String authorremove(@RequestParam("a_id") int a_id, 
-			Criteria criteria,
+			SearchCriteria searchCriteria,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");
 		authorservice.delete(a_id);
-		redirectAttributes.addAttribute("page", criteria.getPage());
-		redirectAttributes.addAttribute("perPageNum", criteria.getPerPageNum());
+		redirectAttributes.addAttribute("page", searchCriteria.getPage());
+		redirectAttributes.addAttribute("perPageNum", searchCriteria.getPerPageNum());
+		redirectAttributes.addAttribute("keyword", searchCriteria.getPage());
+		redirectAttributes.addAttribute("gender", searchCriteria.getPerPageNum());
 		redirectAttributes.addFlashAttribute("msg", "delSuccess");
 		
 		return "redirect:/authorBoard";

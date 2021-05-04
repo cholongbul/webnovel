@@ -45,18 +45,39 @@
 	<select id="listCriteria" resultMap="AuthorResultMap">
 			<![CDATA[
 		SELECT a_id, a_name, gender, a_history FROM author where a_id > 0
-		ORDER BY a_id DESC
-		LIMIT #{pageStart}, #{perPageNum}
+		
 		]]>
+		<include refid="search" />
+		<![CDATA[ORDER BY a_id DESC
+		LIMIT #{pageStart}, #{perPageNum}]]>
 	</select>
-	<!--  전체 작가 수 -->
+	<!-- 전체 작가 수 -->
 	<select id="countAuthors" resultType="int">
 			<![CDATA[
 		SELECT COUNT(a_id)
 		FROM author
 		where a_id > 0
 		]]>
+		<include refid="search" />
 	</select>
+	<sql id="search">
+		AND a_name like concat('%', #{keyword}, '%')
+		<if test="gender != null">
+			<if test="gender == '남'.toString()">
+				AND gender = '남'
+
+			</if>
+			<if test="gender == '여'.toString()">
+				AND gender = '여'
+
+
+			</if>
+			<if test="gender == '불명'.toString()">
+				AND gender = '불명'
+
+			</if>
+		</if>
+	</sql>
 
 	<resultMap id="AuthorResultMap"
 		type="com.bit.domain.AuthorVO">

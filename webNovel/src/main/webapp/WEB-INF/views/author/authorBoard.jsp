@@ -4,10 +4,8 @@
 <html>
 <%@include file="../include/header.jsp"%>
 <main>
-	<form action="/v" method="get">
 
-		<%@include file="../include/boardHead.jsp"%>
-	</form>
+		<%@include file="../include/searchBoard.jsp"%>
 	<div class="container p-3 border border-info mb-2">
 		<ul class="ul-viewlist">
 			<c:forEach items="${authors}" var="author">
