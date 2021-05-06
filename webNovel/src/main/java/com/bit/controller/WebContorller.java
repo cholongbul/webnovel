@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bit.domain.WebplatformVO;
+import com.bit.domain.Web;
 import com.bit.service.WebService;
 
 @Controller
@@ -34,7 +34,7 @@ public class WebContorller {
 	
 	//등록
 	@RequestMapping(value = "/addWebPOST", method = RequestMethod.POST)
-	public String addwebPOST(WebplatformVO web, 
+	public String addwebPOST(Web web, 
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("add POST");
@@ -79,7 +79,7 @@ public class WebContorller {
 	
 	//수정
 	@RequestMapping(value = "/modifywebPOST", method = RequestMethod.POST)
-	public String webmodifyPOST(WebplatformVO web, 
+	public String webmodifyPOST(Web web, 
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");

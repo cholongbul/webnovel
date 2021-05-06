@@ -1,6 +1,5 @@
 package com.bit.webnovel;
 
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -12,9 +11,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.bit.commons.paging.Criteria;
 import com.bit.domain.AuthorVO;
+import com.bit.domain.PublisherVO;
 import com.bit.persistence.AuthorDAO;
+import com.bit.persistence.PubDAO;
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
@@ -24,7 +24,7 @@ public class AuthorDAOTest {
 	private static final Logger logger = LoggerFactory.getLogger(AuthorDAOTest.class);
 
 	@Inject
-	private AuthorDAO authorDAO;
+	private PubDAO pubDAO;
 
 	@Test
 	public void testCreate() throws Exception {
@@ -51,19 +51,17 @@ public class AuthorDAOTest {
 	}
 	
 
-	
 	@Test
-	public void testListCriteria() throws Exception {
-		Criteria criteria = new Criteria();
-		criteria.setPage(3);
-		criteria.setPerPageNum(20);
-		
-		List<AuthorVO> authors = authorDAO.listCriteria(criteria);
-		
-		for (AuthorVO author : authors) {
-			logger.info(author.getA_id() + ":" + author.getA_name());
+	public void testpubCreate() throws Exception {
+
+		for (int i = 1; i <= 1000; i++) {
+			PublisherVO pub = new PublisherVO();
+			pub.setP_name(Integer.toString(i) + "번 출판사");
+			pub.setUrl(Integer.toString(i) + "링크입니다.");
+
+			pubDAO.create(pub);
+
 		}
-		
 	}
 
 }

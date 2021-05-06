@@ -37,21 +37,26 @@
 	</select>
 	<!-- 페이징 -->
 	<select id="listCriteria" resultMap="PubResultMap">
-			<![CDATA[
-		SELECT a_id, a_name, gender, a_history FROM author where a_id > 0
-		ORDER BY a_id DESC
-		LIMIT #{pageStart}, #{perPageNum}
+	<![CDATA[
+		SELECT p_id, p_name, url FROM publisher where p_id > 0
+		ORDER BY p_id DESC
 		]]>
+		<include refid="search" />
+			<![CDATA[ORDER BY p_id DESC
+		LIMIT #{pageStart}, #{perPageNum}]]>
 	</select>
 	<!-- 전체 데이터 수 -->
 	<select id="countPubs" resultType="int">
 			<![CDATA[
-		SELECT COUNT(a_id)
-		FROM author
-		where a_id > 0
+		SELECT COUNT(p_id)
+		FROM publisher
+		where p_id > 0
 		]]>
+		<include refid="search" />
 	</select>
-
+	<sql id="search">
+		AND p_name like concat('%', #{keyword}, '%')
+	</sql>
 	<resultMap id="PubResultMap"
 		type="com.bit.domain.PublisherVO">
 		<id property="p_id" column="p_id" />

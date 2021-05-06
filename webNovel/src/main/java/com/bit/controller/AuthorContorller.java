@@ -103,8 +103,8 @@ public class AuthorContorller {
 		authorservice.update(author);
 		redirectAttributes.addAttribute("page", searchCriteria.getPage());
 		redirectAttributes.addAttribute("perPageNum", searchCriteria.getPerPageNum());
-		redirectAttributes.addAttribute("keyword", searchCriteria.getPage());
-		redirectAttributes.addAttribute("gender", searchCriteria.getPerPageNum());
+		redirectAttributes.addAttribute("keyword", searchCriteria.getKeyword());
+		redirectAttributes.addAttribute("gender", searchCriteria.getGender());
 		redirectAttributes.addFlashAttribute("msg", "modSuccess");
 		
 		return "redirect:/authorBoard";

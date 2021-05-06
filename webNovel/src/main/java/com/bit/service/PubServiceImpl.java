@@ -6,6 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.bit.commons.paging.SearchCriteria;
+import com.bit.domain.AuthorVO;
 import com.bit.domain.PublisherVO;
 import com.bit.persistence.PubDAO;
 
@@ -41,6 +43,16 @@ public class PubServiceImpl implements PubService {
 		return dao.listAll();
 	}
 
+
+	@Override
+	public List<PublisherVO> listCriteria(SearchCriteria searchCriteria) throws Exception {
+		return dao.listCriteria(searchCriteria);
+	}
+
+	@Override
+	public int countPubs(SearchCriteria searchCriteria) throws Exception {
+		return dao.countPubs(searchCriteria);
+	}
 
 
 }

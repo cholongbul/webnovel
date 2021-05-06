@@ -54,8 +54,7 @@
 		<input type="hidden" name="a_id" value="${author.a_id}"> <input
 			type="hidden" name="page" value="${searchCriteria.page}"> <input
 			type="hidden" name="perPageNum" value="${searchCriteria.perPageNum}"><input
-				type="hidden" name="keyword" value="${searchCriteria.keyword}"><input
-				type="hidden" name="gender" value="${searchCriteria.gender}">
+				type="hidden" name="keyword" value="${searchCriteria.keyword}">
 	</form>
 </main>
 
