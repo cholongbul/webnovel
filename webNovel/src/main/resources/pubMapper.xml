@@ -39,7 +39,6 @@
 	<select id="listCriteria" resultMap="PubResultMap">
 	<![CDATA[
 		SELECT p_id, p_name, url FROM publisher where p_id > 0
-		ORDER BY p_id DESC
 		]]>
 		<include refid="search" />
 			<![CDATA[ORDER BY p_id DESC
@@ -55,7 +54,9 @@
 		<include refid="search" />
 	</select>
 	<sql id="search">
+			<if test="keyword != null">
 		AND p_name like concat('%', #{keyword}, '%')
+		</if>
 	</sql>
 	<resultMap id="PubResultMap"
 		type="com.bit.domain.PublisherVO">

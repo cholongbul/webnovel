@@ -45,7 +45,6 @@
 	<select id="listCriteria" resultMap="AuthorResultMap">
 			<![CDATA[
 		SELECT a_id, a_name, gender, a_history FROM author where a_id > 0
-		
 		]]>
 		<include refid="search" />
 		<![CDATA[ORDER BY a_id DESC
@@ -61,20 +60,22 @@
 		<include refid="search" />
 	</select>
 	<sql id="search">
-		AND a_name like concat('%', #{keyword}, '%')
-		<if test="gender != null">
-			<if test="gender == '남'.toString()">
-				AND gender = '남'
+		<if test="keyword != null">
+			AND a_name like concat('%', #{keyword}, '%')
+			<if test="gender != null">
+				<if test="gender == '남'.toString()">
+					AND gender = '남'
 
-			</if>
-			<if test="gender == '여'.toString()">
-				AND gender = '여'
+				</if>
+				<if test="gender == '여'.toString()">
+					AND gender = '여'
 
 
-			</if>
-			<if test="gender == '불명'.toString()">
-				AND gender = '불명'
+				</if>
+				<if test="gender == '불명'.toString()">
+					AND gender = '불명'
 
+				</if>
 			</if>
 		</if>
 	</sql>

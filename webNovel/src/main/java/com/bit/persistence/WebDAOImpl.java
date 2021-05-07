@@ -7,9 +7,10 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.bit.commons.paging.SearchCriteria;
+import com.bit.commons.paging.A_SearchCriteria;
+import com.bit.commons.paging.W_SearchCriteria;
 import com.bit.domain.AuthorVO;
-import com.bit.domain.Web;
+import com.bit.domain.WebVO;
 
 @Repository
 public class WebDAOImpl implements WebDAO {
@@ -19,19 +20,19 @@ public class WebDAOImpl implements WebDAO {
 	private static final String namespace = "com.bit.domain.web";
 
 	@Override
-	public void create(Web web) throws Exception {
+	public void create(WebVO web) throws Exception {
 		session.insert(namespace + ".create", web);
 
 	}
 
 	@Override
-	public Web read(Integer w_id) throws Exception {
+	public WebVO read(Integer w_id) throws Exception {
 		return session.selectOne(namespace + ".read", w_id);
 
 	}
 
 	@Override
-	public void update(Web web) throws Exception {
+	public void update(WebVO web) throws Exception {
 		session.update(namespace + ".update", web);
 
 	}
@@ -43,18 +44,18 @@ public class WebDAOImpl implements WebDAO {
 	}
 
 	@Override
-	public List<Web> listAll() throws Exception {
+	public List<WebVO> listAll() throws Exception {
 		return session.selectList(namespace + ".listAll");
 
 	}
 	
 	@Override
-	public List<Web> listCriteria(SearchCriteria searchCriteria) throws Exception {
+	public List<WebVO> listCriteria(W_SearchCriteria searchCriteria) throws Exception {
 		return session.selectList(namespace + ".listCriteria", searchCriteria);
 	}
 
 	@Override
-	public int countWebs(SearchCriteria searchCriteria) throws Exception {
+	public int countWebs(W_SearchCriteria searchCriteria) throws Exception {
 		return session.selectOne(namespace + ".countWebs");
 	}
 

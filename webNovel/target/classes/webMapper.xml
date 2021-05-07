@@ -55,10 +55,12 @@
 		<include refid="search" />
 	</select>
 	<sql id="search">
+			<if test="keyword != null">
 		AND w_name like concat('%', #{keyword}, '%')
+		</if>
 	</sql>
 	<resultMap id="WebResultMap"
-		type="com.bit.domain.WebplatformVO">
+		type="com.bit.domain.WebVO">
 		<id property="w_id" column="w_id" />
 		<result property="w_name" column="w_name" />
 		<result property="url" column="url" />

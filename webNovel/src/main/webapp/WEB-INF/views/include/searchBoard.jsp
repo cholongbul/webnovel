@@ -13,6 +13,15 @@
 	<c:if test="${pubs ne null}">
 		<h4>출판사 검색</h4>
 	</c:if>
+		<c:if test="${chars ne null}">
+		<h4>등장인물 검색</h4>
+	</c:if>
+		<c:if test="${noveltags ne null}">
+		<h4>작품 태그 검색</h4>
+	</c:if>
+		<c:if test="${chartags ne null}">
+		<h4>등장인물 태그 검색</h4>
+	</c:if>
 	<div class="text-center">
 		<fieldset class="search">
 			<div
@@ -41,10 +50,31 @@
 					href="pubBoard">출판사</a>
 
 			</div>
-			<input style="width: 510px;" type="text" name="keyword" id="keywordInput" class="text"
-				value="${searchCriteria.keyword }" /><button type="button" class="a_searchBtn" id="a_searchBtn">
-				search!
-				</button>
+			<input style="width: 510px;" type="text" name="keyword"
+				id="keywordInput" class="text" value="${searchCriteria.keyword }" />
+			<c:if test="${authors ne null}">
+				<button type="button" class="a_searchBtn" id="a_searchBtn">
+			</c:if>
+			<c:if test="${pubs ne null}">
+				<button type="button" class="p_searchBtn" id="p_searchBtn">
+			</c:if>
+			<c:if test="${novels ne null}">
+				<button type="button" class="n_searchBtn" id="n_searchBtn">
+			</c:if>
+			<c:if test="${chars ne null}">
+				<button type="button" class="c_searchBtn" id="c_searchBtn">
+			</c:if>
+			<c:if test="${noveltags ne null}">
+				<button type="button" class="nt_searchBtn" id="nt_searchBtn">
+			</c:if>
+			<c:if test="${chartags ne null}">
+				<button type="button" class="ct_searchBtn" id="ct_searchBtn">
+			</c:if>
+			<c:if test="${webs ne null}">
+				<button type="button" class="w_searchBtn" id="w_searchBtn">
+			</c:if>
+			search!
+			</button>
 		</fieldset>
 		<br>
 		<c:if test="${authors ne null}">

@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.bit.commons.paging.Criteria;
-import com.bit.commons.paging.SearchCriteria;
+import com.bit.commons.paging.A_SearchCriteria;
 import com.bit.domain.AuthorVO;
 import com.bit.persistence.AuthorDAO;
 
@@ -44,12 +44,12 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public List<AuthorVO> listCriteria(SearchCriteria searchCriteria) throws Exception {
+	public List<AuthorVO> listCriteria(A_SearchCriteria searchCriteria) throws Exception {
 		return dao.listCriteria(searchCriteria);
 	}
 
 	@Override
-	public int countAuthors(SearchCriteria searchCriteria) throws Exception {
+	public int countAuthors(A_SearchCriteria searchCriteria) throws Exception {
 		return dao.countAuthors(searchCriteria);
 	}
 

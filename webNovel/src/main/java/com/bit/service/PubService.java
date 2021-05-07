@@ -2,7 +2,8 @@ package com.bit.service;
 
 import java.util.List;
 
-import com.bit.commons.paging.SearchCriteria;
+import com.bit.commons.paging.A_SearchCriteria;
+import com.bit.commons.paging.P_SearchCriteria;
 import com.bit.domain.AuthorVO;
 import com.bit.domain.PublisherVO;
 
@@ -24,8 +25,8 @@ public interface PubService {
 	public List<PublisherVO> listAll() throws Exception;
 
 	// ÆäÀÌÂ¡
-	public List<PublisherVO> listCriteria(SearchCriteria searchCriteria) throws Exception;
+	public List<PublisherVO> listCriteria(P_SearchCriteria searchCriteria) throws Exception;
 
 	// ÀüÃ¼ ÀÛ°¡ °¹¼ö
-	int countPubs(SearchCriteria searchCriteria) throws Exception;
+	int countPubs(P_SearchCriteria searchCriteria) throws Exception;
 }

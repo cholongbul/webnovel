@@ -3,7 +3,7 @@ package com.bit.service;
 import java.util.List;
 
 import com.bit.commons.paging.Criteria;
-import com.bit.commons.paging.SearchCriteria;
+import com.bit.commons.paging.A_SearchCriteria;
 import com.bit.domain.AuthorVO;
 
 public interface AuthorService {
@@ -24,9 +24,9 @@ public interface AuthorService {
 	public List<AuthorVO> listAll() throws Exception;
 	
 	//ÆäÀÌÂ¡
-	public List<AuthorVO> listCriteria(SearchCriteria searchCriteria) throws Exception;
+	public List<AuthorVO> listCriteria(A_SearchCriteria searchCriteria) throws Exception;
 	
 	//ÀüÃ¼ ÀÛ°¡ °¹¼ö
-	int countAuthors(SearchCriteria searchCriteria) throws Exception;
+	int countAuthors(A_SearchCriteria searchCriteria) throws Exception;
 
 }

@@ -78,6 +78,20 @@ $(document).ready(function() {
 	var formObj = $("form[role='form']");
 	console.log(formObj);
 
+
+	//공용 버튼
+	
+	$(".cancelBtn").on("click", function() {
+		history.go(-1);
+	});
+});
+//작가 커스텀 버튼
+
+$(document).ready(function() {
+
+	var formObj = $("form[role='form']");
+	console.log(formObj);
+
 	$(".a_modBtn").on("click", function() {
 		formObj.attr("action", "modifyAuthor");
 		formObj.attr("method", "get");
@@ -94,14 +108,6 @@ $(document).ready(function() {
 		formObj.attr("action", "authorBoard");
 		formObj.submit();
 	});
-	
-	
-
-	//공용 버튼
-	
-	$(".cancelBtn").on("click", function() {
-		history.go(-1);
-	});
 });
 
 $(document).ready(function(){
@@ -110,6 +116,33 @@ $(document).ready(function(){
 		self.location = 
 			"authorBoard?page=1&perPageNum=80"
 			+ "&gender=" + $("select option:selected").val()
+			+ "&keyword=" + encodeURIComponent($("#keywordInput").val());
+	});
+	
+});
+
+//출판사 커스텀 버튼
+
+//커스텀 버튼
+
+$(document).ready(function() {
+
+	var formObj = $("form[role='form']");
+	console.log(formObj);
+
+
+	$(".p_listBtn").on("click", function() {
+		formObj.attr("method", "get");
+		formObj.attr("action", "pubBoard");
+		formObj.submit();
+	});
+});
+
+$(document).ready(function(){
+	
+	$("#p_searchBtn").on("click", function (event) {
+		self.location = 
+			"pubBoard?page=1&perPageNum=80"
 			+ "&keyword=" + encodeURIComponent($("#keywordInput").val());
 	});
 	

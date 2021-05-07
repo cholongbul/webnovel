@@ -57,5 +57,4 @@
 				type="hidden" name="keyword" value="${searchCriteria.keyword}">
 	</form>
 </main>
-
 <%@include file="../include/footer.jsp"%>

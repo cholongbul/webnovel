@@ -6,11 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.bit.commons.paging.P_PageCounter;
+import com.bit.commons.paging.P_SearchCriteria;
 import com.bit.domain.PublisherVO;
 import com.bit.service.PubService;
 
@@ -46,17 +49,26 @@ public class PubContorller {
 	
 	//리스트 페이지
 	@RequestMapping(value="/pubBoard", method = RequestMethod.GET)
-	public String pubBoard(Model model) throws Exception {
+	public String pubBoard(Model model,
+			@ModelAttribute("searchCriteria") P_SearchCriteria searchCriteria
+			) throws Exception {
 		
 		logger.info("Board");
-		model.addAttribute("pubs", pubservice.listAll());
+		P_PageCounter pageCounter = new P_PageCounter();
+		pageCounter.setCriteria(searchCriteria);
+		pageCounter.setTotalCount(pubservice.countPubs(searchCriteria));
+		
+		model.addAttribute("pubs", pubservice.listCriteria(searchCriteria));
+		model.addAttribute("p_pageCounter", pageCounter);
 		
 		return "pub/pubBoard";
 	}
 	
 	//조회
 	@RequestMapping(value="/pubView", method = RequestMethod.GET)
-	public String pubview( @RequestParam("p_id") int p_id, Model model) throws Exception {
+	public String pubview( @RequestParam("p_id") int p_id, 
+			@ModelAttribute("searchCriteria") P_SearchCriteria searchCriteria,
+			Model model) throws Exception {
 		
 		logger.info("View");
 		model.addAttribute("pub", pubservice.read(p_id));
@@ -69,6 +81,7 @@ public class PubContorller {
 	//수정 페이지 이동
 	@RequestMapping(value="/modifyPub", method = RequestMethod.GET)
 	public String modifypub(@RequestParam("p_id") int p_id, 
+			@ModelAttribute("searchCriteria") P_SearchCriteria searchCriteria,
 			Model model) throws Exception {
 		
 		logger.info("Modify get");
@@ -80,10 +93,14 @@ public class PubContorller {
 	//수정
 	@RequestMapping(value = "/modifypubPOST", method = RequestMethod.POST)
 	public String pubmodifyPOST(PublisherVO pub, 
+			P_SearchCriteria searchCriteria,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");
 		pubservice.update(pub);
+		redirectAttributes.addAttribute("page", searchCriteria.getPage());
+		redirectAttributes.addAttribute("perPageNum", searchCriteria.getPerPageNum());
+		redirectAttributes.addAttribute("keyword", searchCriteria.getKeyword());
 		redirectAttributes.addFlashAttribute("msg", "modSuccess");
 		
 		return "redirect:/pubBoard";
@@ -92,10 +109,14 @@ public class PubContorller {
 	//삭제
 	@RequestMapping(value = "/pubremove", method = RequestMethod.POST)
 	public String pubremove(@RequestParam("p_id") int p_id, 
+			P_SearchCriteria searchCriteria,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");
 		pubservice.delete(p_id);
+		redirectAttributes.addAttribute("page", searchCriteria.getPage());
+		redirectAttributes.addAttribute("perPageNum", searchCriteria.getPerPageNum());
+		redirectAttributes.addAttribute("keyword", searchCriteria.getPage());
 		redirectAttributes.addFlashAttribute("msg", "delSuccess");
 		
 		return "redirect:/pubBoard";

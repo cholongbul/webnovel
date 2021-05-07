@@ -55,8 +55,15 @@
 		</table>
 	</div>
 	<div class="container p-3 border border-info mb-2 text-center">
-		<a class="btn btn-outline-info center" href="authorBoard">목록으로</a> <a
-			class="btn btn-outline-info center" href="pubRemove">삭제하기</a>
+		<form role="form" method="post">
+			<input type="hidden" name="a_id" value="${pub.p_id}"> <input
+				type="hidden" name="page" value="${searchCriteria.page}"> <input
+				type="hidden" name="perPageNum" value="${searchCriteria.perPageNum}">
+			<input type="hidden" name="keyword" value="${searchCriteria.keyword}">
+
+		</form>
+		<button type="submit" class="btn btn-outline-info center p_listBtn">목록으로</button>
+
 	</div>
 </main>
 

@@ -4,34 +4,44 @@
 <html>
 <%@include file="../include/header.jsp"%>
 <main>
-	<form action="/v" method="get" class="text-center">
-		<%@include file="../include/searchBoard.jsp"%>
-
-
-	</form>
+	<%@include file="../include/searchBoard.jsp"%>
 
 
 
 	<div class="container p-3 border border-info mb-2">
 		<ul class="ul-viewlist">
 			<c:forEach items="${pubs}" var="pub">
-				<li><a href="pubView?p_id=${pub.p_id}">${pub.p_name}</a></li>
+				<li><a
+					href="pubView${p_pageCounter.makeQuery(p_pageCounter.criteria.page)}&p_id=${pub.p_id}">${pub.p_name}</a></li>
 			</c:forEach>
 
 		</ul>
 	</div>
+	
 	<div class="container">
 		<nav aria-label="Page navigation example">
 			<ul class="pagination">
-				<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				<c:if test="${p_pageCounter.prev}">
+					<li class="page-item"><a class="page-link"
+						href="pubBoard${p_pageCounter.makeQuery(p_pageCounter.startPage-1)}">Previous</a></li>
+				</c:if>
+				<c:forEach begin="${p_pageCounter.startPage}"
+					end="${p_pageCounter.endPage}" var="idx">
+					<li
+						class="page-item <c:if test="${p_pageCounter.criteria.page == idx}">
+					 active </c:if>"><a
+						class="page-link" href="pubBoard${p_pageCounter.makeQuery(idx)}">${idx}</a></li>
+
+				</c:forEach>
+				<c:if test="${p_pageCounter.next && p_pageCounter.endPage > 0}">
+
+					<li class="page-item"><a class="page-link"
+						href="pubBoard${p_pageCounter.makeQuery(p_pageCounter.endPage + 1)}">Next</a></li>
+				</c:if>
 			</ul>
 		</nav>
 	</div>
 
-</main>
 
+</main>
 <%@include file="../include/footer.jsp"%>

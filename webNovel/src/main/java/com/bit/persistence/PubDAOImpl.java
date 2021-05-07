@@ -7,7 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.bit.commons.paging.SearchCriteria;
+import com.bit.commons.paging.A_SearchCriteria;
+import com.bit.commons.paging.P_SearchCriteria;
 import com.bit.domain.AuthorVO;
 import com.bit.domain.PublisherVO;
 
@@ -50,12 +51,12 @@ public class PubDAOImpl implements PubDAO {
 	}
 	
 	@Override
-	public List<PublisherVO> listCriteria(SearchCriteria searchCriteria) throws Exception {
+	public List<PublisherVO> listCriteria(P_SearchCriteria searchCriteria) throws Exception {
 		return session.selectList(namespace + ".listCriteria", searchCriteria);
 	}
 
 	@Override
-	public int countPubs(SearchCriteria searchCriteria) throws Exception {
+	public int countPubs(P_SearchCriteria searchCriteria) throws Exception {
 		return session.selectOne(namespace + ".countPubs");
 	}
 
