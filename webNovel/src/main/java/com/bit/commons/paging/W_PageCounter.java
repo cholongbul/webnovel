@@ -6,7 +6,7 @@ import java.net.URLEncoder;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-public class PageCounter {
+public class W_PageCounter{
 	
 	private int totalCount;
 	private int startPage;
@@ -84,9 +84,9 @@ public class PageCounter {
 		UriComponents uriComponents = UriComponentsBuilder.newInstance()
 				.queryParam("page", page)
 				.queryParam("perPageNum", criteria.getPerPageNum())
-				.queryParam("gender", ((SearchCriteria) criteria).getGender())
-				.queryParam("keyword", encoding(((SearchCriteria) criteria).getKeyword()))
+				.queryParam("keyword", encoding(((W_SearchCriteria) criteria).getKeyword()))
 				.build();
+					
 		
 		return uriComponents.toUriString();
 	}
