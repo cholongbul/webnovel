@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.bit.commons.paging.N_SearchCriteria;
 import com.bit.domain.NovelVO;
 
 
@@ -40,6 +41,18 @@ public class NovelDAOImpl implements NovelDAO {
 	@Override
 	public List<NovelVO> listAll() throws Exception {
 		return session.selectList(namespace + ".listAll");
+	}
+
+	@Override
+	public List<NovelVO> listCriteria(N_SearchCriteria searchCriteria) throws Exception {
+		return session.selectList(namespace + ".listCriteria", searchCriteria);
+
+	}
+
+	@Override
+	public int countNovels(N_SearchCriteria searchcriteria) throws Exception {
+		return session.selectOne(namespace + ".countNovels");
+
 	}
 
 

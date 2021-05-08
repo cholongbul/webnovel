@@ -117,10 +117,10 @@
 						<label for="exampleInputEmail1"
 							class="col-1 col-form-label pt-0 pl-0">작가이름</label>
 						<div class="col-5">
-							<input type="text" class="form-control" id="inputRelation"
+							<input type="text" id="findauthor" name=author class="form-control" 
 								aria-describedby="emailHelp" placeholder="작가이름"> <small
 								id="emailHelp" class="form-text text-muted">찾는 작가가 존재하지
-								않을 경우 작가를 <a href=#>등록</a> 해주세요
+								않을 경우 작가를 <a href=addAuthor>등록</a> 해주세요
 							</small>
 						</div>
 					</div>

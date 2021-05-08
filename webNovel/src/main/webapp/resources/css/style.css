@@ -197,3 +197,10 @@ body {
 	width: 250px;
 	margin-bottom: 5px;
 	}
+	
+/*자동완성*/
+
+.ui-autocomplete { 
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    }

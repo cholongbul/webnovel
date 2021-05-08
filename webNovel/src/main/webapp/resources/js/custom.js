@@ -147,3 +147,30 @@ $(document).ready(function(){
 	});
 	
 });
+
+//자동완성
+
+$(document).ready(function() {
+	 $("#findauthor").autocomplete({
+	 source : function(request, response) {
+	 
+	 $.ajax({
+	 
+	 url : "/addnovel",
+	 type : "post",
+	 dataType : "json",
+	 data: request,
+	 
+	 success : function(data) {
+	 
+	 var result = data;
+	 response(result);
+	 },
+	 
+	 error : function(data) {
+	 alert("에러가 발생하였습니다.")
+	 }
+	 });
+	 }
+	 });
+	});
