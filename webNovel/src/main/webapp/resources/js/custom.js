@@ -151,26 +151,38 @@ $(document).ready(function(){
 //자동완성
 
 $(document).ready(function() {
-	 $("#findauthor").autocomplete({
-	 source : function(request, response) {
-	 
-	 $.ajax({
-	 
-	 url : "/addnovel",
-	 type : "post",
-	 dataType : "json",
-	 data: request,
-	 
-	 success : function(data) {
-	 
-	 var result = data;
-	 response(result);
-	 },
-	 
-	 error : function(data) {
-	 alert("에러가 발생하였습니다.")
-	 }
-	 });
-	 }
-	 });
+	   $("#authorInput").autocomplete({
+	        source : function(request, response) {
+	            $.ajax({
+	                  url : "/autotext"
+	                , type : "GET"
+	                , data : {keyWord : $("#authorInput").val()} // 검색 키워드
+	                , success : function(data){ // 성공
+	                    response(
+	                        $.map(data, function(item) {
+	                            return {
+	                                  label : item.testNm    //목록에 표시되는 값
+	                                , value : item.testNm    //선택 시 input창에 표시되는 값
+	                            };
+	                        })
+	                    );    //response
+	                }
+	                ,
+	                error : function(){ //실패
+	                    alert("통신에 실패했습니다.");
+	                }
+	            });
+	        }
+	        , minLength : 1    
+	        , autoFocus : false    
+	        , select : function(evt, ui) {
+	            console.log("전체 data: " + JSON.stringify(ui));
+	            console.log("검색 데이터 : " + ui.item.value);
+	        }
+	        , focus : function(evt, ui) {
+	            return false;
+	        }
+	        , close : function(evt) {
+	        }
+	    });
 	});

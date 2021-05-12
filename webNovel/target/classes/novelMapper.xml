@@ -7,27 +7,27 @@
 	<!-- 등록 -->
 	<insert id="create">
 			<![CDATA[insert all
-		into novel(title,n_description,image,ending) values(#{title},#{n_description},#{image},ending)]]>
+		into novel(title,n_description,image,ending) values(#{novle.title},#{novle.n_description},#{novle.image},#{novle.ending})]]>
 		<include refid="add" />
 	</insert>
 
 	<!-- 열람 -->
 	<select id="read" resultMap="Novel_allResultMap">
 		SELECT * FROM novel WHERE n_id =
-		#{n_id}
+		#{novel.n_id}
 	</select>
 
 	<!-- 수정 -->
 	<update id="update">
-		UPDATE novel SET title = #{title}, n_description =
-		#{n_description}, image = #{image}, ending = #{ending}
+		UPDATE novel SET title = #{novel.title}, n_description =
+		#{novel.n_description}, image = #{novel.image}, ending = #{novel.ending}
 		where n_id =
-		#{n_id}
+		#{novel.n_id}
 	</update>
 
 	<!-- 삭제 -->
 	<delete id="delete">
-		DELETE FROM novel WHERE n_id = #{n_id}
+		DELETE FROM novel WHERE n_id = #{novel.novel.n_id}
 	</delete>
 	<!-- 목록 -->
 	<select id="listAll" resultMap="Novel_allResultMap">
@@ -53,7 +53,7 @@
 		LIMIT #{pageStart}, #{perPageNum}]]>
 	</select>
 	<!-- 전체 작가 수 -->
-	<select id="countAuthors" resultType="int">
+	<select id="countNovels" resultType="int">
 			<![CDATA[
 		SELECT COUNT(n_id)
 		FROM novel
@@ -62,14 +62,14 @@
 		<include refid="search" />
 	</select>
 	<sql id="add">
-		<if test="n_id != null">
-			INTO novel_author(n_id, a_id) VALUES(#{n_id},#{a_id})
+		<if test="a_id != null">
+			INTO novel_author(n_id, a_id) VALUES(#{novel_author.n_id},#{novel_author.a_id})
 		</if>
 		<if test="p_id != null">
-			INTO novel_pub(n_id, p_id) VALUES(#{n_id},#{p_id})
+			INTO novel_pub(n_id, p_id) VALUES(#{novel_pub.n_id},#{novel_pub.p_id})
 		</if>
 		<if test="w_id != null">
-			INTO novel_web(n_id, w_id) VALUES(#{n_id},#{w_id})
+			INTO novel_web(n_id, w_id) VALUES(#{novel_web.n_id},#{novel_web.w_id})
 		</if>
 
 	</sql>
@@ -87,32 +87,32 @@
 		<result property="ending" column="ending" />
 	</resultMap>
 	<resultMap id="Novel_authorResultMap"
-		type="com.bit.domain.Nove_authorlVO">
+		type="com.bit.domain.Novel_authorVO">
 		<id property="n_id" column="n_id" />
 		<id property="a_id" column="a_id" />
 	</resultMap>
 	<resultMap id="Novel_charResultMap"
-		type="com.bit.domain.Nove_charlVO">
+		type="com.bit.domain.Novel_charVO">
 		<id property="n_id" column="n_id" />
 		<id property="c_id" column="c_id" />
 	</resultMap>
 	<resultMap id="Novel_ntagResultMap"
-		type="com.bit.domain.Nove_ntagVO">
+		type="com.bit.domain.Novel_ntagVO">
 		<id property="n_id" column="n_id" />
 		<id property="nt_id" column="nt_id" />
 	</resultMap>
 	<resultMap id="Novel_pubResultMap"
-		type="com.bit.domain.Nove_pubVO">
+		type="com.bit.domain.Novel_pubVO">
 		<id property="n_id" column="n_id" />
 		<id property="p_id" column="p_id" />
 	</resultMap>
 	<resultMap id="Novel_webResultMap"
-		type="com.bit.domain.Nove_webVO">
+		type="com.bit.domain.Novel_webVO">
 		<id property="n_id" column="n_id" />
 		<id property="w_id" column="w_id" />
 	</resultMap>
 	<resultMap id="Novel_userResultMap"
-		type="com.bit.domain.Nove_userVO">
+		type="com.bit.domain.Novel_userVO">
 		<id property="n_id" column="n_id" />
 		<id property="u_id" column="u_id" />
 		<result property="label" column="label" />
@@ -120,7 +120,7 @@
 	</resultMap>
 
 	<resultMap id="Novel_allResultMap"
-		type="com.bit.domain.Nove_allVO">
+		type="com.bit.domain.Novel_allVO">
 		<collection property="novel" resultMap="NovelResultMap" />
 		<collection property="novel_author"
 			resultMap="Novel_authorResultMap" />

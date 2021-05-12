@@ -12,7 +12,6 @@ import com.bit.commons.paging.A_SearchCriteria;
 import com.bit.domain.AuthorVO;
 
 @Repository
-
 public class AuthorDAOImpl implements AuthorDAO {
 
 	@Inject

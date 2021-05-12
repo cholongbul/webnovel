@@ -4,7 +4,7 @@
 	<c:if test="${authors ne null}">
 		<h4>작가 검색</h4>
 	</c:if>
-	<c:if test="${novels ne null}">
+	<c:if test="${novel_alls ne null}">
 		<h4>작품 검색</h4>
 	</c:if>
 	<c:if test="${webs ne null}">
@@ -27,7 +27,7 @@
 			<div
 				style="width: 520px; text-align: center; margin-left: auto; margin-right: auto; text-align: center;">
 				<a
-					class="btn btn-outline-info btn-sm center <c:if test="${novels ne null}">
+					class="btn btn-outline-info btn-sm center <c:if test="${novel_alls ne null}">
 					 active </c:if>"
 					href="novelBoard">작품 검색</a> <a
 					class="btn btn-outline-info btn-sm center 	<c:if test="${authors ne null}">
@@ -58,7 +58,7 @@
 			<c:if test="${pubs ne null}">
 				<button type="button" class="p_searchBtn" id="p_searchBtn">
 			</c:if>
-			<c:if test="${novels ne null}">
+			<c:if test="${novel_alls ne null}">
 				<button type="button" class="n_searchBtn" id="n_searchBtn">
 			</c:if>
 			<c:if test="${chars ne null}">

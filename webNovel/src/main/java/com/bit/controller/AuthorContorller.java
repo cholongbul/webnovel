@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bit.commons.paging.Criteria;
 import com.bit.commons.paging.A_PageCounter;
 import com.bit.commons.paging.A_SearchCriteria;
 import com.bit.domain.AuthorVO;

@@ -18,23 +18,23 @@ public class NovelServiceImpl implements NovelService {
 	private NovelDAO dao;
 	
 	@Override
-	public void creat(Novel_allVO author) throws Exception {
-		dao.create(author);
+	public void creat(Novel_allVO novel) throws Exception {
+		dao.create(novel);
 	}
 
 	@Override
-	public Novel_allVO read(Integer a_id) throws Exception {
-		return dao.read(a_id);
+	public Novel_allVO read(Integer n_id) throws Exception {
+		return dao.read(n_id);
 	}
 
 	@Override
-	public void update(Novel_allVO author) throws Exception {
-		dao.update(author);
+	public void update(Novel_allVO novel) throws Exception {
+		dao.update(novel);
 	}
 
 	@Override
-	public void delete(Integer a_id) throws Exception {
-		dao.delete(a_id);
+	public void delete(Integer n_id) throws Exception {
+		dao.delete(n_id);
 	}
 
 	@Override
