@@ -2,8 +2,7 @@ package com.bit.persistence;
 
 import java.util.List;
 
-import com.bit.commons.paging.A_SearchCriteria;
-import com.bit.commons.paging.P_SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.PublisherVO;
 
 
@@ -26,8 +25,8 @@ public interface PubDAO {
 	public List<PublisherVO> listAll() throws Exception;
 	
 	// 페이징
-	public List<PublisherVO> listCriteria(P_SearchCriteria searchCriteria) throws Exception;
+	public List<PublisherVO> listCriteria(SearchCriteria searchCriteria) throws Exception;
 	
 	//전체 데이터 갯수
-	int countPubs(P_SearchCriteria searchcriteria) throws Exception; 
+	int countPubs(SearchCriteria searchcriteria) throws Exception; 
 }

@@ -6,9 +6,9 @@
 <mapper namespace="com.bit.domain.novel">
 	<!-- 등록 -->
 	<insert id="create">
-			<![CDATA[insert all
-		into novel(title,n_description,image,ending) values(#{novle.title},#{novle.n_description},#{novle.image},#{novle.ending})]]>
-		<include refid="add" />
+		insert all
+		into novel(title,n_description,image,ending) 
+		values(#{novle.title},#{novle.n_description},#{novle.image},#{novle.ending})
 	</insert>
 
 	<!-- 열람 -->
@@ -19,8 +19,10 @@
 
 	<!-- 수정 -->
 	<update id="update">
-		UPDATE novel SET title = #{novel.title}, n_description =
-		#{novel.n_description}, image = #{novel.image}, ending = #{novel.ending}
+		UPDATE novel SET title = #{novel.title},
+		n_description =
+		#{novel.n_description}, image = #{novel.image}, ending
+		= #{novel.ending}
 		where n_id =
 		#{novel.n_id}
 	</update>
@@ -61,15 +63,19 @@
 		]]>
 		<include refid="search" />
 	</select>
+	<!--동적 sql -->
 	<sql id="add">
-		<if test="a_id != null">
-			INTO novel_author(n_id, a_id) VALUES(#{novel_author.n_id},#{novel_author.a_id})
+		<if test="author.a_name != null">
+			INTO novel_author(n_id, a_id) SELECT LAST_INSERT_ID(), a.a_id FROM author a, NOVEL n
+			WHERE a.a_id = #{author.a_name})
 		</if>
 		<if test="p_id != null">
-			INTO novel_pub(n_id, p_id) VALUES(#{novel_pub.n_id},#{novel_pub.p_id})
+			INTO novel_pub(n_id, p_id)
+			VALUES(#{novel_pub.n_id},#{novel_pub.p_id})
 		</if>
 		<if test="w_id != null">
-			INTO novel_web(n_id, w_id) VALUES(#{novel_web.n_id},#{novel_web.w_id})
+			INTO novel_web(n_id, w_id)
+			VALUES(#{novel_web.n_id},#{novel_web.w_id})
 		</if>
 
 	</sql>
@@ -78,7 +84,10 @@
 			AND title like concat('%', #{keyword}, '%')
 		</if>
 	</sql>
+	<!--동적 sql -->
 
+
+	<!-- 매핑 -->
 	<resultMap id="NovelResultMap" type="com.bit.domain.NovelVO">
 		<id property="n_id" column="n_id" />
 		<result property="title" column="title" />
@@ -118,7 +127,24 @@
 		<result property="label" column="label" />
 		<result property="vote" column="vote" />
 	</resultMap>
-
+	<resultMap id="AuthorResultMap"
+		type="com.bit.domain.AuthorVO">
+		<id property="a_id" column="a_id" />
+		<result property="a_name" column="a_name" />
+		<result property="gender" column="gender" />
+		<result property="a_history" column="a_history" />
+	</resultMap>
+	<resultMap id="WebResultMap" type="com.bit.domain.WebVO">
+		<id property="w_id" column="w_id" />
+		<result property="w_name" column="w_name" />
+		<result property="url" column="url" />
+	</resultMap>
+	<resultMap id="PubResultMap"
+		type="com.bit.domain.PublisherVO">
+		<id property="p_id" column="p_id" />
+		<result property="p_name" column="p_name" />
+		<result property="url" column="url" />
+	</resultMap>
 	<resultMap id="Novel_allResultMap"
 		type="com.bit.domain.Novel_allVO">
 		<collection property="novel" resultMap="NovelResultMap" />
@@ -126,11 +152,19 @@
 			resultMap="Novel_authorResultMap" />
 		<collection property="novel_char"
 			resultMap="Novel_charResultMap" />
-		<collection property="novel_ntag" resultMap="Novel_ntagResultMap" />
-		<collection property="novel_pub" resultMap="Novel_pubResultMap" />
-		<collection property="novel_web" resultMap="Novel_webResultMap" />
-		<collection property="novel_user" resultMap="Novel_userResultMap" />
-
+		<collection property="novel_ntag"
+			resultMap="Novel_ntagResultMap" />
+		<collection property="novel_pub"
+			resultMap="Novel_pubResultMap" />
+		<collection property="novel_web"
+			resultMap="Novel_webResultMap" />
+		<collection property="novel_user"
+			resultMap="Novel_userResultMap" />
+		<collection property="author" resultMap="AuthorResultMap" />
+		<collection property="web" resultMap="WebResultMap" />
+		<collection property="pub" resultMap="PubResultMap" />
 	</resultMap>
+	<!-- 매핑 -->
+
 </mapper>
 

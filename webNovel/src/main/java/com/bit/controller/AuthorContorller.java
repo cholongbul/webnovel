@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bit.commons.paging.A_PageCounter;
-import com.bit.commons.paging.A_SearchCriteria;
+import com.bit.commons.paging.PageCounter;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.AuthorVO;
 import com.bit.service.AuthorService;
 
@@ -50,17 +50,17 @@ public class AuthorContorller {
 	//작가 리스트
 	@RequestMapping(value="/authorBoard", method = RequestMethod.GET)
 	public String authorBoard(Model model, 
-			@ModelAttribute("searchCriteria") A_SearchCriteria searchCriteria
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria
 			)throws Exception {
 		
 		logger.info("Board");
 		
-		A_PageCounter pageCounter = new A_PageCounter();
+		PageCounter pageCounter = new PageCounter();
 		pageCounter.setCriteria(searchCriteria);
 		pageCounter.setTotalCount(authorservice.countAuthors(searchCriteria));
 		
 		model.addAttribute("authors", authorservice.listCriteria(searchCriteria));
-		model.addAttribute("a_pageCounter", pageCounter);
+		model.addAttribute("pageCounter", pageCounter);
 
 		return "author/authorBoard";
 	}
@@ -69,7 +69,7 @@ public class AuthorContorller {
 	//작가 조회
 	@RequestMapping(value="/authorView", method = RequestMethod.GET)
 	public String authorview( @RequestParam("a_id") int a_id, 
-			@ModelAttribute("searchCriteria") A_SearchCriteria searchCriteria,
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria,
 			Model model) throws Exception {
 		
 		logger.info("Board");
@@ -83,7 +83,7 @@ public class AuthorContorller {
 	//수정 페이지 이동
 	@RequestMapping(value="/modifyAuthor", method = RequestMethod.GET)
 	public String modifyAuthor(@RequestParam("a_id") int a_id, 
-			@ModelAttribute("searchCriteria") A_SearchCriteria searchCriteria,
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria,
 			Model model) throws Exception {
 		
 		logger.info("Modify get");
@@ -95,7 +95,7 @@ public class AuthorContorller {
 	//수정
 	@RequestMapping(value = "/modifyAuthorPOST", method = RequestMethod.POST)
 	public String authormodifyPOST(AuthorVO author, 
-			A_SearchCriteria searchCriteria,
+			SearchCriteria searchCriteria,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");
@@ -112,7 +112,7 @@ public class AuthorContorller {
 	//삭제
 	@RequestMapping(value = "/authorRemove", method = RequestMethod.POST)
 	public String authorremove(@RequestParam("a_id") int a_id, 
-			A_SearchCriteria searchCriteria,
+			SearchCriteria searchCriteria,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");

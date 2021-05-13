@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bit.commons.paging.W_PageCounter;
-import com.bit.commons.paging.W_SearchCriteria;
+import com.bit.commons.paging.PageCounter;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.WebVO;
 import com.bit.service.WebService;
 
@@ -47,17 +47,17 @@ public class WebContorller {
 
 	// 리스트 페이지
 	@RequestMapping(value = "/webBoard", method = RequestMethod.GET)
-	public String webBoard(Model model, @ModelAttribute("searchCriteria") W_SearchCriteria searchCriteria)
+	public String webBoard(Model model, @ModelAttribute("searchCriteria") SearchCriteria searchCriteria)
 			throws Exception {
 
 		logger.info("Board");
 
-		W_PageCounter pageCounter = new W_PageCounter();
+		PageCounter pageCounter = new PageCounter();
 		pageCounter.setCriteria(searchCriteria);
 		pageCounter.setTotalCount(webservice.countWebs(searchCriteria));
 
 		model.addAttribute("webs", webservice.listAll());
-		model.addAttribute("w_pageCounter", pageCounter);
+		model.addAttribute("pageCounter", pageCounter);
 
 		return "web/webBoard";
 	}
@@ -65,7 +65,7 @@ public class WebContorller {
 	// 조회
 	@RequestMapping(value = "/webView", method = RequestMethod.GET)
 	public String webview(@RequestParam("w_id") int w_id,
-			@ModelAttribute("searchCriteria") W_SearchCriteria searchCriteria, Model model) throws Exception {
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, Model model) throws Exception {
 
 		logger.info("View");
 		model.addAttribute("web", webservice.read(w_id));
@@ -76,7 +76,7 @@ public class WebContorller {
 	// 수정 페이지 이동
 	@RequestMapping(value = "/modifyWeb", method = RequestMethod.GET)
 	public String modifyweb(@RequestParam("w_id") int w_id,
-			@ModelAttribute("searchCriteria") W_SearchCriteria searchCriteria, Model model) throws Exception {
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, Model model) throws Exception {
 
 		logger.info("Modify get");
 		model.addAttribute("Web", webservice.read(w_id));
@@ -86,7 +86,7 @@ public class WebContorller {
 
 	// 수정
 	@RequestMapping(value = "/modifywebPOST", method = RequestMethod.POST)
-	public String webmodifyPOST(WebVO web, W_SearchCriteria searchCriteria, RedirectAttributes redirectAttributes)
+	public String webmodifyPOST(WebVO web, SearchCriteria searchCriteria, RedirectAttributes redirectAttributes)
 			throws Exception {
 
 		logger.info("Modify POST");
@@ -101,7 +101,7 @@ public class WebContorller {
 
 	// 삭제
 	@RequestMapping(value = "/webremove", method = RequestMethod.POST)
-	public String webremove(@RequestParam("w_id") int w_id, W_SearchCriteria searchCriteria,
+	public String webremove(@RequestParam("w_id") int w_id, SearchCriteria searchCriteria,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");

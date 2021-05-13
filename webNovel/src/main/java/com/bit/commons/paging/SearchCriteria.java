@@ -1,7 +1,8 @@
 package com.bit.commons.paging;
 
-public class N_SearchCriteria extends Criteria {
+public class SearchCriteria extends Criteria {
 	
+
 	private String gender;
 	private String keyword;
 	

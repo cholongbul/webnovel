@@ -2,7 +2,7 @@ package com.bit.persistence;
 
 import java.util.List;
 
-import com.bit.commons.paging.N_SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.Novel_allVO;
 
 
@@ -24,9 +24,9 @@ public interface NovelDAO {
 
 	
 	// 페이징
-	public List<Novel_allVO> listCriteria(N_SearchCriteria searchCriteria) throws Exception;
+	public List<Novel_allVO> listCriteria(SearchCriteria searchCriteria) throws Exception;
 	
 	//전체 데이터 갯수
-	int countNovels(N_SearchCriteria searchcriteria) throws Exception; 
+	int countNovels(SearchCriteria searchcriteria) throws Exception; 
 
 }

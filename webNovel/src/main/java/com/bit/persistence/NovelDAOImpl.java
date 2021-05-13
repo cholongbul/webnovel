@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.bit.commons.paging.N_SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.Novel_allVO;
 
 @Repository
@@ -45,13 +45,13 @@ public class NovelDAOImpl implements NovelDAO {
 	}
 
 	@Override
-	public List<Novel_allVO> listCriteria(N_SearchCriteria searchCriteria) throws Exception {
+	public List<Novel_allVO> listCriteria(SearchCriteria searchCriteria) throws Exception {
 		return session.selectList(namespace + ".listCriteria", searchCriteria);
 
 	}
 
 	@Override
-	public int countNovels(N_SearchCriteria searchcriteria) throws Exception {
+	public int countNovels(SearchCriteria searchcriteria) throws Exception {
 		return session.selectOne(namespace + ".countNovels");
 
 	}

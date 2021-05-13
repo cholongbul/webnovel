@@ -2,7 +2,7 @@ package com.bit.service;
 
 import java.util.List;
 
-import com.bit.commons.paging.N_SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.Novel_allVO;
 
 public interface NovelService {
@@ -23,9 +23,9 @@ public interface NovelService {
 	public List<Novel_allVO> listAll() throws Exception;
 
 	// ÆäÀÌÂ¡
-	public List<Novel_allVO> listCriteria(N_SearchCriteria searchCriteria) throws Exception;
+	public List<Novel_allVO> listCriteria(SearchCriteria searchCriteria) throws Exception;
 
 	// ÀüÃ¼ ÀÛ°¡ °¹¼ö
-	int countNovels(N_SearchCriteria searchCriteria) throws Exception;
+	int countNovels(SearchCriteria searchCriteria) throws Exception;
 
 }

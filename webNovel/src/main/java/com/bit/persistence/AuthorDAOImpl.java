@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.bit.commons.paging.Criteria;
-import com.bit.commons.paging.A_SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.AuthorVO;
 
 @Repository
@@ -51,12 +51,12 @@ public class AuthorDAOImpl implements AuthorDAO {
 
 
 	@Override
-	public List<AuthorVO> listCriteria(A_SearchCriteria searchCriteria) throws Exception {
+	public List<AuthorVO> listCriteria(SearchCriteria searchCriteria) throws Exception {
 		return session.selectList(namespace + ".listCriteria", searchCriteria);
 	}
 
 	@Override
-	public int countAuthors(A_SearchCriteria searchCriteria) throws Exception {
+	public int countAuthors(SearchCriteria searchCriteria) throws Exception {
 		return session.selectOne(namespace + ".countAuthors");
 	}
 

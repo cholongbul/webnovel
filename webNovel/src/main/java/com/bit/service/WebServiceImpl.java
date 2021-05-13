@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.bit.commons.paging.A_SearchCriteria;
-import com.bit.commons.paging.W_SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.AuthorVO;
 import com.bit.domain.WebVO;
 import com.bit.persistence.WebDAO;
@@ -45,12 +45,12 @@ public class WebServiceImpl implements WebService {
 	}
 
 	@Override
-	public List<WebVO> listCriteria(W_SearchCriteria searchCriteria) throws Exception {
+	public List<WebVO> listCriteria(SearchCriteria searchCriteria) throws Exception {
 		return dao.listCriteria(searchCriteria);
 	}
 
 	@Override
-	public int countWebs(W_SearchCriteria searchCriteria) throws Exception {
+	public int countWebs(SearchCriteria searchCriteria) throws Exception {
 		return dao.countWebs(searchCriteria);
 	}
 

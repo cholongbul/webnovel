@@ -22,7 +22,7 @@
 				<tbody>
 							<c:forEach items="${novel_alls}" var="novel_all">
 					<tr>
-						<td><a href="novelView${n_pageCounter.makeQuery(n_pageCounter.criteria.page)}&n_id=${novel_all.novel.n_id}">${novel_all.novel.title}</a></td>
+						<td><a href="novelView${pageCounter.makeQuery(pageCounter.criteria.page)}&n_id=${novel_all.novel.n_id}">${novel_all.novel.title}</a></td>
 						<td>${novel_all.novel_web.started}</td>
 						<td>${novel_all.novel.ending}</td>
 						<td>100.0</td>
@@ -36,22 +36,22 @@
 	<div class="container">
 		<nav aria-label="Page navigation example">
 			<ul class="pagination">
-				<c:if test="${n_pageCounter.prev}">
+				<c:if test="${pageCounter.prev}">
 					<li class="page-item"><a class="page-link"
-						href="novelBoard${n_pageCounter.makeQuery(n_pageCounter.startPage-1)}">Previous</a></li>
+						href="novelBoard${pageCounter.makeQuery(pageCounter.startPage-1)}">Previous</a></li>
 				</c:if>
 				<c:forEach begin="${n_pageCounter.startPage}"
-					end="${n_pageCounter.endPage}" var="idx">
+					end="${pageCounter.endPage}" var="idx">
 					<li
-						class="page-item <c:if test="${n_pageCounter.criteria.page == idx}">
+						class="page-item <c:if test="${pageCounter.criteria.page == idx}">
 					 active </c:if>"><a
-						class="page-link" href="novelBoard${n_pageCounter.makeQuery(idx)}">${idx}</a></li>
+						class="page-link" href="novelBoard${pageCounter.makeQuery(idx)}">${idx}</a></li>
 
 				</c:forEach>
-				<c:if test="${n_pageCounter.next && n_pageCounter.endPage > 0}">
+				<c:if test="${pageCounter.next && pageCounter.endPage > 0}">
 
 					<li class="page-item"><a class="page-link"
-						href="novelBoard${n_pageCounter.makeQuery(n_pageCounter.endPage + 1)}">Next</a></li>
+						href="novelBoard${pageCounter.makeQuery(pageCounter.endPage + 1)}">Next</a></li>
 				</c:if>
 			</ul>
 		</nav>

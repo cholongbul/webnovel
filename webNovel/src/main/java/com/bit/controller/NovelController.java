@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bit.commons.paging.N_PageCounter;
-import com.bit.commons.paging.N_SearchCriteria;
+import com.bit.commons.paging.PageCounter;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.Novel_allVO;
 import com.bit.service.NovelService;
 
@@ -50,17 +50,17 @@ public class NovelController {
 	//리스트 페이지
 	@RequestMapping(value="/novelBoard", method = RequestMethod.GET)
 	public String novelBoard(Model model,
-			@ModelAttribute("searchCriteria") N_SearchCriteria searchCriteria
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria
 			) throws Exception {
 		
 		logger.info("Board");
-		N_PageCounter pageCounter = new N_PageCounter();
+		PageCounter pageCounter = new PageCounter();
 		searchCriteria.setPerPageNum(15);
 		pageCounter.setCriteria(searchCriteria);
 		pageCounter.setTotalCount(novelservice.countNovels(searchCriteria));
 		
 		model.addAttribute("novel_alls", novelservice.listCriteria(searchCriteria));
-		model.addAttribute("n_pageCounter", pageCounter);
+		model.addAttribute("pageCounter", pageCounter);
 		
 		return "novel/novelBoard";
 	}
@@ -68,11 +68,11 @@ public class NovelController {
 	//조회
 	@RequestMapping(value="/novelView", method = RequestMethod.GET)
 	public String novelview( @RequestParam("n_id") int n_id, 
-			@ModelAttribute("searchCriteria") N_SearchCriteria searchCriteria,
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria,
 			Model model) throws Exception {
 		
 		logger.info("View");
-		model.addAttribute("novel", novelservice.read(n_id));
+		model.addAttribute("novel_all", novelservice.read(n_id));
 		
 		return "novel/novelView";
 	}
@@ -82,7 +82,7 @@ public class NovelController {
 	//수정 페이지 이동
 	@RequestMapping(value="/modifyNovel", method = RequestMethod.GET)
 	public String modifynovel(@RequestParam("n_id") int n_id, 
-			@ModelAttribute("searchCriteria") N_SearchCriteria searchCriteria,
+			@ModelAttribute("searchCriteria") SearchCriteria searchCriteria,
 			Model model) throws Exception {
 		
 		logger.info("Modify get");
@@ -94,7 +94,7 @@ public class NovelController {
 	//수정
 	@RequestMapping(value = "/modifynovelPOST", method = RequestMethod.POST)
 	public String novelmodifyPOST(Novel_allVO novel, 
-			N_SearchCriteria searchCriteria,
+			SearchCriteria searchCriteria,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");
@@ -110,7 +110,7 @@ public class NovelController {
 	//삭제
 	@RequestMapping(value = "/novelremove", method = RequestMethod.POST)
 	public String novelremove(@RequestParam("n_id") int n_id, 
-			N_SearchCriteria searchCriteria,
+			SearchCriteria searchCriteria,
 			RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("Modify POST");

@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.bit.commons.paging.N_SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.Novel_allVO;
 import com.bit.persistence.NovelDAO;
 
@@ -43,12 +43,12 @@ public class NovelServiceImpl implements NovelService {
 	}
 
 	@Override
-	public List<Novel_allVO> listCriteria(N_SearchCriteria searchCriteria) throws Exception {
+	public List<Novel_allVO> listCriteria(SearchCriteria searchCriteria) throws Exception {
 		return dao.listCriteria(searchCriteria);
 	}
 
 	@Override
-	public int countNovels(N_SearchCriteria searchCriteria) throws Exception {
+	public int countNovels(SearchCriteria searchCriteria) throws Exception {
 		return dao.countNovels(searchCriteria);
 	}
 

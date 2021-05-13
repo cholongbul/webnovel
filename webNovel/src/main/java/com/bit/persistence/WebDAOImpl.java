@@ -7,8 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.bit.commons.paging.A_SearchCriteria;
-import com.bit.commons.paging.W_SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.AuthorVO;
 import com.bit.domain.WebVO;
 
@@ -50,12 +50,12 @@ public class WebDAOImpl implements WebDAO {
 	}
 	
 	@Override
-	public List<WebVO> listCriteria(W_SearchCriteria searchCriteria) throws Exception {
+	public List<WebVO> listCriteria(SearchCriteria searchCriteria) throws Exception {
 		return session.selectList(namespace + ".listCriteria", searchCriteria);
 	}
 
 	@Override
-	public int countWebs(W_SearchCriteria searchCriteria) throws Exception {
+	public int countWebs(SearchCriteria searchCriteria) throws Exception {
 		return session.selectOne(namespace + ".countWebs");
 	}
 

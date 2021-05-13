@@ -3,7 +3,7 @@ package com.bit.persistence;
 import java.util.List;
 
 import com.bit.commons.paging.Criteria;
-import com.bit.commons.paging.A_SearchCriteria;
+import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.AuthorVO;
 
 
@@ -26,9 +26,9 @@ public interface AuthorDAO {
 	public List<AuthorVO> listAll() throws Exception;
 	
 	// 페이징
-	public List<AuthorVO> listCriteria(A_SearchCriteria searchCriteria) throws Exception;
+	public List<AuthorVO> listCriteria(SearchCriteria searchCriteria) throws Exception;
 	
 	//전체 데이터 갯수
-	int countAuthors(A_SearchCriteria searchcriteria) throws Exception; 
+	int countAuthors(SearchCriteria searchcriteria) throws Exception; 
 
 }

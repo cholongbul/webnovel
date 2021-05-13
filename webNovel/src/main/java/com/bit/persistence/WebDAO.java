@@ -2,9 +2,8 @@ package com.bit.persistence;
 
 import java.util.List;
 
-import com.bit.commons.paging.A_SearchCriteria;
-import com.bit.commons.paging.W_SearchCriteria;
-import com.bit.domain.AuthorVO;
+import com.bit.commons.paging.SearchCriteria;
+
 import com.bit.domain.WebVO;
 
 
@@ -27,8 +26,8 @@ public interface WebDAO {
 	public List<WebVO> listAll() throws Exception;
 	
 	// 페이징
-	public List<WebVO> listCriteria(W_SearchCriteria searchCriteria) throws Exception;
+	public List<WebVO> listCriteria(SearchCriteria searchCriteria) throws Exception;
 	
 	//전체 데이터 갯수
-	int countWebs(W_SearchCriteria searchcriteria) throws Exception; 
+	int countWebs(SearchCriteria searchcriteria) throws Exception; 
 }

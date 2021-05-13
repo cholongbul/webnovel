@@ -24,22 +24,22 @@
 	<div class="container">
 		<nav aria-label="Page navigation example">
 			<ul class="pagination">
-				<c:if test="${w_pageCounter.prev}">
+				<c:if test="${pageCounter.prev}">
 					<li class="page-item"><a class="page-link"
-						href="authorBoard${w_pageCounter.makeQuery(w_pageCounter.startPage-1)}">Previous</a></li>
+						href="authorBoard${pageCounter.makeQuery(pageCounter.startPage-1)}">Previous</a></li>
 				</c:if>
-				<c:forEach begin="${w_pageCounter.startPage}"
-					end="${w_pageCounter.endPage}" var="idx">
+				<c:forEach begin="${pageCounter.startPage}"
+					end="${pageCounter.endPage}" var="idx">
 					<li
-						class="page-item <c:if test="${w_pageCounter.criteria.page == idx}">
+						class="page-item <c:if test="${pageCounter.criteria.page == idx}">
 					 active </c:if>"><a
-						class="page-link" href="authorBoard${w_pageCounter.makeQuery(idx)}">${idx}</a></li>
+						class="page-link" href="authorBoard${pageCounter.makeQuery(idx)}">${idx}</a></li>
 
 				</c:forEach>
-				<c:if test="${w_pageCounter.next && w_pageCounter.endPage > 0}">
+				<c:if test="${pageCounter.next && pageCounter.endPage > 0}">
 
 					<li class="page-item"><a class="page-link"
-						href="authorBoard${w_pageCounter.makeQuery(w_pageCounter.endPage + 1)}">Next</a></li>
+						href="authorBoard${pageCounter.makeQuery(pageCounter.endPage + 1)}">Next</a></li>
 				</c:if>
 			</ul>
 		</nav>
