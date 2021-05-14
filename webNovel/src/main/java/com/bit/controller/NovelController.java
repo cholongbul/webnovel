@@ -36,7 +36,7 @@ public class NovelController {
 	}
 	
 	//µî·Ï
-	@RequestMapping(value = "/addNovelPOST", method = RequestMethod.POST)
+	@RequestMapping(value = "/addNovelPost", method = RequestMethod.POST)
 	public String addnovelPOST(Novel_allVO novel, 
 			RedirectAttributes redirectAttributes) throws Exception {
 

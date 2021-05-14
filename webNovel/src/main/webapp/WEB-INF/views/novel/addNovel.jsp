@@ -4,10 +4,10 @@
 <html>
 <%@include file="../include/header.jsp"%>
 
-	<main>
-		<form method="post" action="addNovelPost">
+<main>
+	<form method="post" action="addNovelPost">
 		<div class="container p-3 border border-info mb-2">
-		
+
 			<h4>작품 등록</h4>
 			<p class="text-danger">
 				작품을 등록하기 전에 <a>가이드 라인</a>을 읽어주세요.
@@ -27,7 +27,7 @@
 					href="#web">연재처</a></li>
 			</ul>
 			<!-- 탭 -->
-			
+
 			<!-- 기본 정보 -->
 			<div class="tab-content p-3" id="myTabContent">
 				<div class="tab-pane fade show active" id="general" role="tabpanel"
@@ -36,15 +36,16 @@
 					<div class="mb-3  col-12 row">
 						<label for="inputTitle" class="col-1 col-form-label pt-0 pl-0">제목</label>
 						<div class="col-5">
-							<input type="text" name="novel.title" class="form-control" id="inputTitle"
-								placeholder="제목을 입력해주세요">
+							<input type="text" name="novel.title" class="form-control"
+								id="inputTitle" placeholder="제목을 입력해주세요">
 						</div>
 					</div>
 					<div class="mb-3 col-12 row">
 						<label for="inputDescription"
 							class="col-1 col-form-label pt-0 pl-0">줄거리</label>
 						<div class="col-5">
-							<textarea class="form-control" name="novel.n_description" id="exampleTextarea" rows="5"></textarea>
+							<textarea class="form-control" name="novel.n_description"
+								id="exampleTextarea" rows="5"></textarea>
 							<small id="descriptionHelp" class="form-text text-muted">줄거리를
 								입력해주세요. 이야기의 스포일러가 되는 내용은 담지 말아주시길 바랍니다. 줄거리를 직접 작성한 게 아니라면 출처를
 								기입해주세요. </small>
@@ -53,7 +54,8 @@
 					<div class="mb-3  col-12 row">
 						<label for="selectContinue" class="col-1 col-form-label pt-0 pl-0">연재상황</label>
 						<div class="col-5">
-							<select class="custom-select" name="novel.ending" id="selectContinue">
+							<select class="custom-select" name="novel.ending"
+								id="selectContinue">
 								<option value="연재중">연재중</option>
 								<option value="완결">완결</option>
 								<option value="연재중단">연재중단</option>
@@ -110,10 +112,11 @@
 						<label for="exampleInputEmail1"
 							class="col-1 col-form-label pt-0 pl-0">작가이름</label>
 						<div class="col-5">
-							<input type="text" id="findauthor" name=author.a_name class="form-control" 
-								aria-describedby="emailHelp" placeholder="작가이름"> <small
-								id="emailHelp" class="form-text text-muted">찾는 작가가 존재하지
-								않을 경우 작가를 <a href=addAuthor>등록</a> 해주세요
+							<input type="text" id="findauthor" name=author.a_name
+								class="form-control" aria-describedby="emailHelp"
+								placeholder="작가이름"> <small id="emailHelp"
+								class="form-text text-muted">찾는 작가가 존재하지 않을 경우 작가를 <a
+								href=addAuthor>등록</a> 해주세요
 							</small>
 						</div>
 					</div>
@@ -127,14 +130,16 @@
 						<label for="exampleInputEmail1"
 							class="col-1 col-form-label pt-0 pl-0">연재처</label>
 						<div class="col-3">
-							<input type="text" class="form-control" name="web.w_name" id="inputRelation"
-								aria-describedby="emailHelp" placeholder="연재처">
+							<input type="text" class="form-control" name="web.w_name"
+								id="inputRelation" aria-describedby="emailHelp"
+								placeholder="연재처">
 						</div>
 						<label for="exampleInputEmail1"
 							class="col-1 col-form-label pt-0 px-0">연재시작일</label>
 						<div class="col-3">
-							<input type="text" class="form-control" name="novel_web.started" id="inputRelation"
-								aria-describedby="emailHelp" placeholder="연재시작일">
+							<input type="text" class="form-control" name="novel_web.started"
+								id="inputRelation" aria-describedby="emailHelp"
+								placeholder="연재시작일">
 						</div>
 
 					</div>
@@ -155,11 +160,11 @@
 			</div>
 		</div>
 		<div class="container p-3 border border-info mb-2 text-center">
-			<a class="btn btn-outline-info center" href="addNovelPOST">등록하기</a>
+			<button class="btn btn-outline-info center" type="submit">등록하기</button>
 		</div>
-			</form>
-		
-	</main>
+	</form>
+
+</main>
 
 
 <%@include file="../include/footer.jsp"%>

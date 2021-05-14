@@ -6,9 +6,10 @@
 <mapper namespace="com.bit.domain.novel">
 	<!-- 등록 -->
 	<insert id="create">
-		insert all
-		into novel(title,n_description,image,ending) 
-		values(#{novle.title},#{novle.n_description},#{novle.image},#{novle.ending})
+		<![CDATA[Insert ALL	into novel(title,n_description,image,ending) 
+		values(#{novel.title},#{novel.n_description},#{novel.image},#{novel.ending})]]>
+				<include refid="add" />
+		
 	</insert>
 
 	<!-- 열람 -->
@@ -66,16 +67,12 @@
 	<!--동적 sql -->
 	<sql id="add">
 		<if test="author.a_name != null">
-			INTO novel_author(n_id, a_id) SELECT LAST_INSERT_ID(), a.a_id FROM author a, NOVEL n
-			WHERE a.a_id = #{author.a_name})
+			INTO novel_author(n_id, a_id) SELECT LAST_INSERT_ID(), a_id FROM author
+			WHERE a_name = #{author.a_name})
 		</if>
-		<if test="p_id != null">
-			INTO novel_pub(n_id, p_id)
-			VALUES(#{novel_pub.n_id},#{novel_pub.p_id})
-		</if>
-		<if test="w_id != null">
-			INTO novel_web(n_id, w_id)
-			VALUES(#{novel_web.n_id},#{novel_web.w_id})
+		<if test="web.w_name != null">
+			INTO novel_web(n_id, w_id, started) SELECT LAST_INSERT_ID(), w_id, #{novel_web.started} FROM author
+			WHERE w_name = #{web.w_name})
 		</if>
 
 	</sql>
