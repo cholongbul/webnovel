@@ -6,6 +6,5 @@ import lombok.Data;
 public class Novel_webVO {
 	private Integer w_id;
 	private Integer n_id;
-	private String started;
-	private String ended;
+	private String startday;
 }

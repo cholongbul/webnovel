@@ -137,7 +137,7 @@
 						<label for="exampleInputEmail1"
 							class="col-1 col-form-label pt-0 px-0">연재시작일</label>
 						<div class="col-3">
-							<input type="text" class="form-control" name="novel_web.started"
+							<input type="text" class="form-control" name="novel_web.startday"
 								id="inputRelation" aria-describedby="emailHelp"
 								placeholder="연재시작일">
 						</div>

@@ -23,7 +23,7 @@
 							<c:forEach items="${novel_alls}" var="novel_all">
 					<tr>
 						<td><a href="novelView${pageCounter.makeQuery(pageCounter.criteria.page)}&n_id=${novel_all.novel.n_id}">${novel_all.novel.title}</a></td>
-						<td>${novel_all.novel_web.started}</td>
+						<td>${novel_all.novel_web.startday}</td>
 						<td>${novel_all.novel.ending}</td>
 						<td>100.0</td>
 						<td>8.25</td>

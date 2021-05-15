@@ -6,10 +6,11 @@
 <mapper namespace="com.bit.domain.novel">
 	<!-- 등록 -->
 	<insert id="create">
-		<![CDATA[Insert ALL	into novel(title,n_description,image,ending) 
-		values(#{novel.title},#{novel.n_description},#{novel.image},#{novel.ending})]]>
+
+		<![CDATA[Insert	into novel(title,n_description,image,ending) 
+		VALUES(#{novel.title},#{novel.n_description},#{novel.image},#{novel.ending});]]>
 				<include refid="add" />
-		
+
 	</insert>
 
 	<!-- 열람 -->
@@ -67,12 +68,12 @@
 	<!--동적 sql -->
 	<sql id="add">
 		<if test="author.a_name != null">
-			INTO novel_author(n_id, a_id) SELECT LAST_INSERT_ID(), a_id FROM author
-			WHERE a_name = #{author.a_name})
+			Insert INTO novel_author(n_id, a_id) SELECT LAST_INSERT_ID(), a_id FROM author
+			WHERE a_name = '윤이삭';
 		</if>
 		<if test="web.w_name != null">
-			INTO novel_web(n_id, w_id, started) SELECT LAST_INSERT_ID(), w_id, #{novel_web.started} FROM author
-			WHERE w_name = #{web.w_name})
+			Insert INTO novel_web(n_id, w_id, startday) SELECT LAST_INSERT_ID(), w_id, '2015-05-21' FROM web
+			WHERE w_name = '네이버 웹소설';
 		</if>
 
 	</sql>
