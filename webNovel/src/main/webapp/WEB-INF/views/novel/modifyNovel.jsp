@@ -7,7 +7,7 @@
 <main>
 
 	<div class="container p-3 border border-info mb-2">
-		<h4>작가 등록</h4>
+		<h4>작품 수정</h4>
 		<p class="text-danger">
 			작가을 등록하기 전에 <a>가이드 라인</a>을 읽어주세요.
 		</p>

@@ -40,7 +40,7 @@
 					<li class="page-item"><a class="page-link"
 						href="novelBoard${pageCounter.makeQuery(pageCounter.startPage-1)}">Previous</a></li>
 				</c:if>
-				<c:forEach begin="${n_pageCounter.startPage}"
+				<c:forEach begin="${pageCounter.startPage}"
 					end="${pageCounter.endPage}" var="idx">
 					<li
 						class="page-item <c:if test="${pageCounter.criteria.page == idx}">

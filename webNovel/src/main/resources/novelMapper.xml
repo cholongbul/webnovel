@@ -15,8 +15,32 @@
 
 	<!-- 열람 -->
 	<select id="read" resultMap="Novel_allResultMap">
-		SELECT * FROM novel WHERE n_id =
-		#{novel.n_id}
+SELECT * FROM novel n 
+		LEFT OUTER JOIN novel_author na
+		ON n.n_id = na.n_id
+		LEFT OUTER JOIN author a
+		ON na.a_id = a.a_id
+		LEFT OUTER JOIN novel_web nw
+		ON n.n_id = nw.n_id
+		LEFT OUTER JOIN web w
+		ON nw.w_id = w.w_id 
+		LEFT OUTER JOIN novel_char nc
+		ON n.n_id = nc.n_id
+		LEFT OUTER JOIN characters c
+		ON nc.c_id = c.c_id
+		LEFT OUTER JOIN novel_ntag nnt
+		ON n.n_id = nnt.n_id
+		LEFT OUTER JOIN ntag nt
+		ON nnt.nt_id = nt.nt_id
+		LEFT OUTER JOIN novel_pub np
+		ON n.n_id = np.n_id
+		LEFT OUTER JOIN publisher p
+		ON np.p_id = p.p_id
+		LEFT OUTER JOIN novel_user nu
+		ON n.n_id = nu.n_id
+		LEFT OUTER JOIN user u
+		ON nu.u_id = u.u_id
+		where n.n_id = #{novel.n_id}
 	</select>
 
 	<!-- 수정 -->
@@ -69,11 +93,11 @@
 	<sql id="add">
 		<if test="author.a_name != null">
 			Insert INTO novel_author(n_id, a_id) SELECT LAST_INSERT_ID(), a_id FROM author
-			WHERE a_name = '윤이삭';
+			WHERE a_name = #{author.a_name};
 		</if>
 		<if test="web.w_name != null">
 			Insert INTO novel_web(n_id, w_id, startday) SELECT LAST_INSERT_ID(), w_id, '2015-05-21' FROM web
-			WHERE w_name = '네이버 웹소설';
+			WHERE w_name = #{web.w_name};
 		</if>
 
 	</sql>
