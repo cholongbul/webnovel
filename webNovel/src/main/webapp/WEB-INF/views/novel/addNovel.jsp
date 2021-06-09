@@ -79,29 +79,16 @@
 					aria-labelledby="image-tab">
 					<h4 class="mb-4">이미지</h4>
 
-					<table>
-						<tr>
-							<td class="border p-1" style="width: 256px; height: 400px;"><p
-									class="text-center">이미지 없음</p> <img src="#"
-								class="img-thumbnail hidden" alt="#"></td>
-							<td class="px-4" style="width: 320px; height: 400px;">
-								<div class="form-group">
-									<div class="input-group mb-3">
-										<div class="custom-file">
-											<input type="file" class="custom-file-input"
-												id="inputGroupFile02" aria-describedby="inputImgHelp">
-											<label class="custom-file-label" for="inputGroupFile02">이미지
-												선택</label>
-										</div>
-										<small id="inputImgHelp" class="form-text text-muted">이미지는
-											10mb이하의 JPEG 혹은 PNG 포맷으로만 올릴 수 있습니다. <br>256x400보다 큰
-											사이즈의 이미지는 자동으로 크기가 조정됩니다.
-										</small>
-									</div>
-								</div>
-							</td>
-						</tr>
-					</table>
+					<div class="inputArea mb-3 col-12 row form-group">
+					
+						<input class="form-control mt-4" type="file" id="gdsImg"
+							name="file" />
+						<div class="select_img">
+							<img src="" />
+						</div>
+
+						
+					</div>
 				</div>
 				<!-- 이미지 -->
 				<!-- 작가 -->

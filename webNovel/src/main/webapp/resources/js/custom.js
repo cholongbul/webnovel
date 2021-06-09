@@ -78,14 +78,13 @@ $(document).ready(function() {
 	var formObj = $("form[role='form']");
 	console.log(formObj);
 
+	// 공용 버튼
 
-	//공용 버튼
-	
 	$(".cancelBtn").on("click", function() {
 		history.go(-1);
 	});
 });
-//작가 커스텀 버튼
+// 작가 커스텀 버튼
 
 $(document).ready(function() {
 
@@ -110,26 +109,29 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function(){
-	
-	$("#a_searchBtn").on("click", function (event) {
-		self.location = 
-			"authorBoard?page=1&perPageNum=80"
-			+ "&gender=" + $("select option:selected").val()
-			+ "&keyword=" + encodeURIComponent($("#keywordInput").val());
-	});
-	
-});
+$(document).ready(
+		function() {
 
-//출판사 커스텀 버튼
+			$("#a_searchBtn").on(
+					"click",
+					function(event) {
+						self.location = "authorBoard?page=1&perPageNum=80"
+								+ "&gender="
+								+ $("select option:selected").val()
+								+ "&keyword="
+								+ encodeURIComponent($("#keywordInput").val());
+					});
 
-//커스텀 버튼
+		});
+
+// 출판사 커스텀 버튼
+
+// 커스텀 버튼
 
 $(document).ready(function() {
 
 	var formObj = $("form[role='form']");
 	console.log(formObj);
-
 
 	$(".p_listBtn").on("click", function() {
 		formObj.attr("method", "get");
@@ -138,51 +140,68 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function(){
-	
-	$("#p_searchBtn").on("click", function (event) {
-		self.location = 
-			"pubBoard?page=1&perPageNum=80"
-			+ "&keyword=" + encodeURIComponent($("#keywordInput").val());
-	});
-	
-});
+$(document).ready(
+		function() {
 
-//자동완성
+			$("#p_searchBtn").on(
+					"click",
+					function(event) {
+						self.location = "pubBoard?page=1&perPageNum=80"
+								+ "&keyword="
+								+ encodeURIComponent($("#keywordInput").val());
+					});
+
+		});
+
+// 자동완성
 
 $(document).ready(function() {
-	   $("#authorInput").autocomplete({
-	        source : function(request, response) {
-	            $.ajax({
-	                  url : "/autotext"
-	                , type : "GET"
-	                , data : {keyWord : $("#authorInput").val()} // 검색 키워드
-	                , success : function(data){ // 성공
-	                    response(
-	                        $.map(data, function(item) {
-	                            return {
-	                                  label : item.testNm    //목록에 표시되는 값
-	                                , value : item.testNm    //선택 시 input창에 표시되는 값
-	                            };
-	                        })
-	                    );    //response
-	                }
-	                ,
-	                error : function(){ //실패
-	                    alert("통신에 실패했습니다.");
-	                }
-	            });
-	        }
-	        , minLength : 1    
-	        , autoFocus : false    
-	        , select : function(evt, ui) {
-	            console.log("전체 data: " + JSON.stringify(ui));
-	            console.log("검색 데이터 : " + ui.item.value);
-	        }
-	        , focus : function(evt, ui) {
-	            return false;
-	        }
-	        , close : function(evt) {
-	        }
-	    });
+	$("#authorInput").autocomplete({
+		source : function(request, response) {
+			$.ajax({
+				url : "/autotext",
+				type : "GET",
+				data : {
+					keyWord : $("#authorInput").val()
+				} // 검색 키워드
+				,
+				success : function(data) { // 성공
+					response($.map(data, function(item) {
+						return {
+							label : item.testNm // 목록에 표시되는 값
+							,
+							value : item.testNm
+						// 선택 시 input창에 표시되는 값
+						};
+					})); // response
+				},
+				error : function() { // 실패
+					alert("통신에 실패했습니다.");
+				}
+			});
+		},
+		minLength : 1,
+		autoFocus : false,
+		select : function(evt, ui) {
+			console.log("전체 data: " + JSON.stringify(ui));
+			console.log("검색 데이터 : " + ui.item.value);
+		},
+		focus : function(evt, ui) {
+			return false;
+		},
+		close : function(evt) {
+		}
 	});
+});
+
+// 이미지 업로드
+
+$("#gdsImg").change(function() {
+	if (this.files && this.files[0]) {
+		var reader = new FileReader;
+		reader.onload = function(data) {
+			$(".select_img img").attr("src", data.target.result).width(500);
+		}
+		reader.readAsDataURL(this.files[0]);
+	}
+});
