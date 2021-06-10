@@ -5,7 +5,7 @@
 <%@include file="../include/header.jsp"%>
 
 <main>
-	<form method="post" action="addNovelPost">
+	<form method="post" action="addNovelPost" enctype="multipart/form-data">
 		<div class="container p-3 border border-info mb-2">
 
 			<h4>작품 등록</h4>
@@ -20,7 +20,7 @@
 				<li class="nav-item"><a class="nav-link active"
 					data-toggle="tab" href="#general">기본 정보</a></li>
 				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#image">이미지</a></li>
+					href="#image">표지</a></li>
 				<li class="nav-item"><a class="nav-link" data-toggle="tab"
 					href="#writer">작가</a></li>
 				<li class="nav-item"><a class="nav-link" data-toggle="tab"
@@ -77,18 +77,15 @@
 				<!-- 이미지 -->
 				<div class="tab-pane fade" id="image" role="tabpanel"
 					aria-labelledby="image-tab">
-					<h4 class="mb-4">이미지</h4>
-
-					<div class="inputArea mb-3 col-12 row form-group">
-					
+					<h4 class="mb-4">표지</h4>
+					<div class="inputArea mb-3 col-5 form-group">
 						<input class="form-control mt-4" type="file" id="gdsImg"
-							name="file" />
-						<div class="select_img">
-							<img src="" />
-						</div>
-
-						
+							name="novel.image" />
 					</div>
+					<div class="select_img">
+						<img src="" />
+					</div>
+					
 				</div>
 				<!-- 이미지 -->
 				<!-- 작가 -->

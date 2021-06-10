@@ -7,8 +7,8 @@
 	<!-- 등록 -->
 	<insert id="create">
 
-		<![CDATA[Insert	into novel(title,n_description,image,ending) 
-		VALUES(#{novel.title},#{novel.n_description},#{novel.image},#{novel.ending});]]>
+		<![CDATA[Insert	into novel(title,n_description,image,ending,thumbnail) 
+		VALUES(#{novel.title},#{novel.n_description},#{novel.image},#{novel.ending},#{novel.thumbnail});]]>
 				<include refid="add" />
 
 	</insert>
@@ -116,6 +116,7 @@ SELECT * FROM novel n
 		<result property="n_description" column="n_description" />
 		<result property="image" column="image" />
 		<result property="ending" column="ending" />
+		<result property="thumbnail" column="thumbnail"/>
 	</resultMap>
 	<resultMap id="Novel_authorResultMap"
 		type="com.bit.domain.Novel_authorVO">

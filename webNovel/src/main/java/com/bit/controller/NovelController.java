@@ -1,8 +1,12 @@
 package com.bit.controller;
 
 
+import java.io.File;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
+import org.junit.jupiter.api.parallel.ResourceLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,12 +15,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bit.commons.paging.PageCounter;
 import com.bit.commons.paging.SearchCriteria;
 import com.bit.domain.Novel_allVO;
 import com.bit.service.NovelService;
+import com.bit.utils.UploadFileUtils;
 
 @Controller
 public class NovelController {
@@ -25,6 +31,9 @@ public class NovelController {
 	
 	@Inject
 	private NovelService novelservice;
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	//등록 페이지
 	@RequestMapping(value="/addNovel", method = RequestMethod.GET)
@@ -38,7 +47,18 @@ public class NovelController {
 	//등록
 	@RequestMapping(value = "/addNovelPost", method = RequestMethod.POST)
 	public String addnovelPOST(Novel_allVO novel, 
-			RedirectAttributes redirectAttributes) throws Exception {
+			RedirectAttributes redirectAttributes, MultipartFile file) throws Exception {
+		
+		String imgUploadPath = uploadPath + File.separator + "imgUpload";
+		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = null;
+		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			 fileName =  UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
+			} else {
+			 fileName = uploadPath + File.separator + "images" + File.separator + "none.jpg";
+			}
+		novel.getNovel().setImage(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+		novel.getNovel().setThumbnail(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 
 		logger.info("add POST");
 		novelservice.creat(novel);

@@ -14,7 +14,7 @@
 
 			<div class="col-4 mx-3 float-right">
 				<div class="border" style="width: 256px; height: 400px;">
-					<img src="#" class="img-thumbnail hidden" alt="#">
+					<img src="${novel_all.novel.image}" class="img-thumbnail">
 				</div>
 			</div>
 			<div class="col-7">

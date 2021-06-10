@@ -9,4 +9,5 @@ public class NovelVO {
 	private String n_description;
 	private String ending;
 	private String image; 
+	private String thumbnail;
 }
